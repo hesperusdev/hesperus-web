@@ -1,3 +1,5 @@
+import Image from "next/image";
+import { CloudflareVideoPlayer } from "./CloudflareVideoPlayer";
 import {
   ArrowRight,
   BellRing,
@@ -111,168 +113,77 @@ export function HesperusLanding() {
       <section className="hero-shell">
         <div className="hero-noise" />
         <header className="site-header shell">
-          <a className="brand-lockup" href="#top">
-            <span className="brand-mark">
-              <Star className="h-4 w-4" />
-            </span>
-            <span className="brand-wordmark">Hesperus</span>
-          </a>
-
-          <nav className="site-nav">
-            <a href="#features">Features</a>
-            <a href="#how-it-works">How It Works</a>
-            <a href="#pricing">Pricing</a>
-            <a href="#about">About</a>
-          </nav>
-
-          <div className="site-actions">
-            <a className="login-link" href={mailtoHref}>
-              Log in
+          <div className="site-header-inner container-large">
+            <a className="brand-lockup" href="#top">
+              <span className="brand-mark">
+                <Star className="h-4 w-4" />
+              </span>
+              <span className="brand-wordmark">Hesperus</span>
             </a>
-            <a className="primary-button" href={mailtoHref}>
-              Get Started
-            </a>
+
+            <nav className="site-nav">
+              <a href="#features">Features</a>
+              <a href="#how-it-works">How It Works</a>
+              <a href="#pricing">Pricing</a>
+              <a href="#about">About</a>
+              <a href="/style-guide">Style Guide</a>
+            </nav>
+
+            <div className="site-actions">
+              <a className="login-link" href={mailtoHref}>
+                Log in
+              </a>
+              <a className="primary-button" href={mailtoHref}>
+                Get Started
+              </a>
+            </div>
           </div>
         </header>
 
-        <div id="top" className="shell hero-grid">
-          <div className="hero-copy">
-            <div className="eyebrow-pill">AI Scout For YouTube Opportunities</div>
+        <div id="top" className="shell hero-grid container-large">
+          <div className="hero-copy container-large">
             <h1 className="hero-title">
-              Find YouTube
-              <br />
-              Opportunities
-              <br />
-              <span>Before Anyone Else</span>
+              I Turn Other People&apos;s YouTube Audiences Into Your Leads.
             </h1>
-            <p className="hero-description">
-              Hesperus helps your team show up in the right YouTube conversations
-              at the right time, with the right message, so your ideal customers
-              recognize you before they ever land on your website.
-            </p>
-
-            <div className="hero-cta-row">
-              <a className="primary-button large" href={mailtoHref}>
-                Get Hesperus <ArrowRight className="h-4 w-4" />
-              </a>
-              <a className="ghost-link" href="#demo">
-                <PlayCircle className="h-5 w-5" />
-                <span>See If This Fits Your Business</span>
-              </a>
-            </div>
-
-            <div className="hero-signal-row">
-              {heroSignals.map((item) => (
-                <article key={item.label} className="signal-chip">
-                  <div className="signal-icon">
-                    <item.icon className="h-4 w-4" />
-                  </div>
-                  <div>
-                    <p className="signal-label">{item.label}</p>
-                    <p className="signal-body">{item.body}</p>
-                  </div>
-                </article>
-              ))}
-            </div>
           </div>
 
-          <div className="hero-visual">
-            <div className="mascot-stage">
-              <div className="signal-orb" />
-              <div className="mascot-glow" />
-              <div className="signal-creature">
-                <div className="creature-star">
-                  <Star className="h-5 w-5" />
-                </div>
-                <div className="creature-head">
-                  <div className="creature-antenna" />
-                  <div className="creature-face">
-                    <span className="eye left" />
-                    <span className="eye right" />
-                  </div>
-                </div>
-                <div className="creature-cape" />
-                <div className="creature-body" />
-              </div>
+          <div className="hero-media container-medium">
+            <CloudflareVideoPlayer
+              className="cloudflare-player-shell hero-player-shell"
+              iframeClassName="cloudflare-player-iframe hero-player-iframe"
+            />
+          </div>
 
-              <div className="hero-note">
-                <div className="hero-note-star">
-                  <Star className="h-4 w-4" />
-                </div>
-                <p>
-                  Hesperus is built to surface signal early, so your brand can
-                  participate before the best moments disappear.
-                </p>
-              </div>
-            </div>
+          <div className="hero-cta-row container-small">
+            <a className="primary-button large" href={mailtoHref}>
+              Get Hesperus <ArrowRight className="h-4 w-4" />
+            </a>
+            <a className="ghost-link" href="#how-it-works">
+              <PlayCircle className="h-5 w-5" />
+              <span>See If This Fits Your Business</span>
+            </a>
           </div>
         </div>
 
-        <div id="demo" className="shell demo-panel">
-          <div className="demo-copy">
-            <p className="section-label">See Hesperus In Action</p>
-            <h2>See how Hesperus finds opportunities you&apos;d never find on your own.</h2>
-            <p>
-              The system is built to scout, score, and deliver the right YouTube
-              opportunities into a workflow your team can actually use.
-            </p>
-          </div>
-
-          <div className="demo-screen">
-            <div className="demo-sidebar">
-              <div className="demo-brand">
-                <Star className="h-3.5 w-3.5" />
-                <span>Hesperus</span>
-              </div>
-              <div className="demo-nav-item active">Dashboard</div>
-              <div className="demo-nav-item">Opportunities</div>
-              <div className="demo-nav-item">Alerts</div>
-              <div className="demo-nav-item">Watchlist</div>
-              <div className="demo-nav-item">History</div>
-              <div className="demo-nav-item">Settings</div>
-            </div>
-
-            <div className="demo-main">
-              <div className="demo-topbar">
-                <div>
-                  <p className="demo-heading">Top Opportunities</p>
-                  <p className="demo-subheading">High potential opportunities found for your team</p>
+        <div className="shell hero-signal-section">
+          <div className="hero-signal-row container-large">
+            {heroSignals.map((item) => (
+              <article key={item.label} className="signal-chip">
+                <div className="signal-icon">
+                  <item.icon className="h-4 w-4" />
                 </div>
-                <div className="demo-filter">This Week</div>
-              </div>
-
-              <div className="demo-table">
-                {dashboardRows.map((row) => (
-                  <div key={row.title} className="demo-row">
-                    <div className="demo-row-icon">
-                      <PlayCircle className="h-4 w-4" />
-                    </div>
-                    <div className="demo-row-copy">
-                      <p className="demo-row-title">{row.title}</p>
-                      <div className="demo-tags">
-                        {row.tags.map((tag) => (
-                          <span key={tag}>{tag}</span>
-                        ))}
-                      </div>
-                    </div>
-                    <div className="demo-score">
-                      <strong>{row.score}</strong>
-                      <span>/100</span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              <a className="table-link" href={mailtoHref}>
-                See How Hesperus Works <ArrowRight className="h-4 w-4" />
-              </a>
-            </div>
+                <div>
+                  <p className="signal-label">{item.label}</p>
+                  <p className="signal-body">{item.body}</p>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>
 
       <section id="features" className="light-section">
-        <div className="shell feature-grid">
+        <div className="shell feature-grid container-large">
           <div className="feature-copy">
             <p className="section-label dark">Built to give your brand an unfair visibility advantage</p>
             <h2>Designed for relevance, timing, and quality control.</h2>
@@ -341,7 +252,7 @@ export function HesperusLanding() {
       </section>
 
       <section id="how-it-works" className="content-section">
-        <div className="shell dual-card-grid">
+        <div className="shell dual-card-grid container-large">
           <article className="content-card">
             <p className="section-label dark">How It Works</p>
             <h2>AI-assisted opportunity detection. Human-controlled approval.</h2>
@@ -383,10 +294,16 @@ export function HesperusLanding() {
       </section>
 
       <section id="pricing" className="cta-section">
-        <div className="shell cta-banner">
+        <div className="shell cta-banner container-large">
           <div className="cta-banner-visual">
             <div className="mini-creature">
-              <Star className="h-5 w-5" />
+              <Image
+                src="/brand/hesperus-yuruchara.webp"
+                alt="Hesperus mascot"
+                width={640}
+                height={960}
+                className="mini-creature-image"
+              />
             </div>
           </div>
 

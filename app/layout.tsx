@@ -1,6 +1,8 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import Script from "next/script";
+import { Plus_Jakarta_Sans } from "next/font/google";
+import { designSystemCssVars } from "@/lib/designSystem";
 
 export const metadata: Metadata = {
   title: "Hesperus",
@@ -10,6 +12,10 @@ export const metadata: Metadata = {
 
 const gaMeasurementId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
 const gtmId = process.env.NEXT_PUBLIC_GTM_ID;
+const plusJakartaSans = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  variable: "--font-plus-jakarta-sans",
+});
 
 export default function RootLayout({
   children,
@@ -18,7 +24,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
+      <body className={plusJakartaSans.variable} style={designSystemCssVars}>
         {gtmId ? (
           <noscript>
             <iframe

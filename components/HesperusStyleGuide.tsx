@@ -7,22 +7,39 @@ const mailtoHref =
   "mailto:hello@gethesperus.com?subject=Get%20Hesperus&body=I%20want%20to%20see%20if%20Hesperus%20fits%20my%20business.";
 
 const colorTokens = [
-  { label: "Background Dark", value: "rgb(var(--bg-dark))", className: "token-bg-dark" },
-  { label: "Background Dark 2", value: "rgb(var(--bg-dark-2))", className: "token-bg-dark-2" },
-  { label: "Hero Text", value: "rgb(var(--hero-text))", className: "token-hero-text" },
-  { label: "Hero Muted", value: "rgb(var(--hero-muted))", className: "token-hero-muted" },
-  { label: "Accent", value: "rgb(var(--accent))", className: "token-accent" },
-  { label: "Accent 2", value: "rgb(var(--accent-2))", className: "token-accent-2" },
-  { label: "Accent 3", value: "rgb(var(--accent-3))", className: "token-accent-3" },
-  { label: "Surface", value: "rgb(var(--surface))", className: "token-surface" },
-  { label: "Surface Card", value: "rgb(var(--surface-card))", className: "token-surface-card" },
-  { label: "Surface Text", value: "rgb(var(--surface-text))", className: "token-surface-text" },
+  { label: "Background Dark", rgb: "8 10 28", hex: "#080A1C", className: "token-bg-dark" },
+  { label: "Background Dark 2", rgb: "18 12 47", hex: "#120C2F", className: "token-bg-dark-2" },
+  { label: "Hero Text", rgb: "248 243 237", hex: "#F8F3ED", className: "token-hero-text" },
+  { label: "Hero Muted", rgb: "195 190 205", hex: "#C3BECD", className: "token-hero-muted" },
+  { label: "Accent", rgb: "255 110 58", hex: "#FF6E3A", className: "token-accent" },
+  { label: "Accent 2", rgb: "255 169 74", hex: "#FFA94A", className: "token-accent-2" },
+  { label: "Accent 3", rgb: "230 92 190", hex: "#E65CBE", className: "token-accent-3" },
+  { label: "Surface", rgb: "247 241 236", hex: "#F7F1EC", className: "token-surface" },
+  { label: "Surface Card", rgb: "255 253 250", hex: "#FFFDFA", className: "token-surface-card" },
+  { label: "Surface Text", rgb: "31 29 40", hex: "#1F1D28", className: "token-surface-text" },
 ];
 
 const pageWrapperLabel = `min(${designSystem.pageWrapperMaxPx}px, calc(100% - ${designSystem.pageWrapperGutterRem}rem))`;
+const fullContainerLabel = `calc(100% - ${designSystem.containerFullGutterRem * 2}rem)`;
 const largeContainerLabel = `${designSystem.containerLargePercent}%`;
 const mediumContainerLabel = `${designSystem.containerMediumRem}rem / ${designSystem.containerMediumRem * 16}px`;
 const smallContainerLabel = `${designSystem.containerSmallRem}rem / ${designSystem.containerSmallRem * 16}px`;
+const sectionPaddingLabel = `${designSystem.sectionPaddingRem}rem / ${designSystem.sectionPaddingRem * 16}px`;
+const sectionStackGapLabel = `${designSystem.sectionStackGapRem}rem / ${designSystem.sectionStackGapRem * 16}px`;
+const containerGapLabel = `${designSystem.containerGapRem}rem / ${designSystem.containerGapRem * 16}px`;
+const graphicsRules = [
+  "Dark cinematic top sections, warm editorial lower sections",
+  "Premium SaaS meets operator dashboard, not generic startup gradients",
+  "Use strong layout geometry, clear hierarchy, and generous negative space",
+  "Prefer diagrams, UI panels, funnel visuals, and channel-to-site flow graphics",
+  "Avoid cartoonish illustrations, fake 3D blobs, crypto aesthetics, or noisy textures",
+];
+const graphicsMotifs = [
+  "YouTube audience flow into a client-owned channel",
+  "Funnels, paths, arrows, and narrowing conversion stages",
+  "High-signal dashboard panels and monitoring surfaces",
+  "Warm orange highlights against deep navy backgrounds",
+];
 
 export function HesperusStyleGuide() {
   return (
@@ -45,10 +62,10 @@ export function HesperusStyleGuide() {
 
             <div className="site-actions">
               <a className="login-link" href={mailtoHref}>
-                Log in
+                Email Me
               </a>
               <a className="primary-button" href={mailtoHref}>
-                Get Started
+                Book a Fit Call
               </a>
             </div>
           </div>
@@ -79,7 +96,10 @@ export function HesperusStyleGuide() {
                 <article key={token.label} className="token-card">
                   <div className={`token-swatch ${token.className}`} />
                   <h3>{token.label}</h3>
-                  <p>{token.value}</p>
+                  <div className="token-meta">
+                    <p>{`rgb(${token.rgb})`}</p>
+                    <p>{token.hex}</p>
+                  </div>
                 </article>
               ))}
             </div>
@@ -90,34 +110,35 @@ export function HesperusStyleGuide() {
               <p className="section-label dark">Containers</p>
               <h2>Current width system for page layout and content blocks.</h2>
             </div>
-            <article className="container-demo-card">
-              <div className="container-demo-label-row">
-                <h3>Overlay View</h3>
-                <p>All widths shown inside the current page wrapper</p>
-              </div>
+            <div className="container-demo-card">
               <div className="container-demo-frame">
-                <div className="container-demo-overlay container-demo-page">
-                  <span className="container-demo-tag container-demo-tag-page">
-                    {`Page Wrapper: ${pageWrapperLabel}`}
+                <div className="container-demo-overlay container-demo-full">
+                  <span className="container-demo-tag container-demo-tag-full">
+                    {`Full Page Width: ${fullContainerLabel}`}
                   </span>
-                  <div className="container-demo-overlay container-demo-large">
-                    <span className="container-demo-tag container-demo-tag-large">
-                      {`Large: ${largeContainerLabel}`}
+                  <div className="container-demo-overlay container-demo-page">
+                    <span className="container-demo-tag container-demo-tag-page">
+                      {`Page Wrapper: ${pageWrapperLabel}`}
                     </span>
-                    <div className="container-demo-overlay container-demo-medium">
-                      <span className="container-demo-tag container-demo-tag-medium">
-                        {`Medium: ${mediumContainerLabel}`}
+                    <div className="container-demo-overlay container-demo-large">
+                      <span className="container-demo-tag container-demo-tag-large">
+                        {`Large: ${largeContainerLabel}`}
                       </span>
-                      <div className="container-demo-overlay container-demo-small">
-                        <span className="container-demo-tag container-demo-tag-small">
-                          {`Small: ${smallContainerLabel}`}
+                      <div className="container-demo-overlay container-demo-medium">
+                        <span className="container-demo-tag container-demo-tag-medium">
+                          {`Medium: ${mediumContainerLabel}`}
                         </span>
+                        <div className="container-demo-overlay container-demo-small">
+                          <span className="container-demo-tag container-demo-tag-small">
+                            {`Small: ${smallContainerLabel}`}
+                          </span>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </article>
+            </div>
           </div>
 
           <div className="style-guide-section">
@@ -129,8 +150,10 @@ export function HesperusStyleGuide() {
               <article className="content-card">
                 <p className="section-label dark">Hero Title</p>
                 <div className="style-type-sample">
-                  <p className="hero-title-main style-guide-type-main">Find YouTube Opportunities</p>
-                  <p className="hero-title-accent style-guide-type-accent">Before Anyone Else</p>
+                  <p className="style-guide-type-main">
+                    I Turn Other People&apos;s YouTube Audiences Into Your Leads.
+                  </p>
+                  <p className="style-guide-type-note">Plain white, centered, sentence-case, high-impact headline</p>
                 </div>
               </article>
 
@@ -141,6 +164,50 @@ export function HesperusStyleGuide() {
                   Plus Jakarta Sans is used site-wide for both the marketing copy and the tighter UI
                   labels.
                 </p>
+              </article>
+            </div>
+          </div>
+
+          <div className="style-guide-section">
+            <div className="style-guide-heading">
+              <p className="section-label dark">Spacing</p>
+              <h2>Simple spacing rules for sections and stacked containers.</h2>
+            </div>
+            <div className="spacing-guide">
+              <article className="spacing-card">
+                <div className="spacing-card-header">
+                  <h3>Section Vertical Padding</h3>
+                  <p>{sectionPaddingLabel}</p>
+                </div>
+                <div className="spacing-demo spacing-demo-section">
+                  <div className="spacing-demo-band spacing-demo-band-dark">Section Start</div>
+                  <div className="spacing-demo-measure spacing-demo-measure-section" />
+                  <div className="spacing-demo-band">Section Content</div>
+                </div>
+              </article>
+
+              <article className="spacing-card">
+                <div className="spacing-card-header">
+                  <h3>Section Stack Gap</h3>
+                  <p>{sectionStackGapLabel}</p>
+                </div>
+                <div className="spacing-demo spacing-demo-stack">
+                  <div className="spacing-demo-band spacing-demo-band-dark">Section A</div>
+                  <div className="spacing-demo-measure spacing-demo-measure-stack" />
+                  <div className="spacing-demo-band">Section B</div>
+                </div>
+              </article>
+
+              <article className="spacing-card">
+                <div className="spacing-card-header">
+                  <h3>Container Gap</h3>
+                  <p>{containerGapLabel}</p>
+                </div>
+                <div className="spacing-demo spacing-demo-containers">
+                  <div className="spacing-demo-band spacing-demo-band-accent">Container One</div>
+                  <div className="spacing-demo-measure spacing-demo-measure-container" />
+                  <div className="spacing-demo-band spacing-demo-band-accent-light">Container Two</div>
+                </div>
               </article>
             </div>
           </div>
@@ -168,10 +235,11 @@ export function HesperusStyleGuide() {
             </div>
             <div className="style-guide-video">
               <CloudflareVideoPlayer
-                className="cloudflare-player-shell style-guide-video-shell"
+                className="cloudflare-player-shell style-guide-video-shell container-medium"
                 iframeClassName="cloudflare-player-iframe style-guide-video-iframe"
               />
             </div>
+            <p className="style-guide-footnote">{`Landing-page video width: medium container (${mediumContainerLabel})`}</p>
           </div>
 
           <div className="style-guide-section">
@@ -180,13 +248,14 @@ export function HesperusStyleGuide() {
               <h2>Examples of the cards, chips, panels, and CTA block styles in use.</h2>
             </div>
             <div className="style-component-grid">
-              <article className="signal-chip style-guide-signal-chip">
-                <div className="signal-icon">
+              <article className="funnel-stage style-guide-funnel-stage">
+                <div className="funnel-stage-icon">
                   <Sparkles className="h-4 w-4" />
                 </div>
                 <div>
-                  <p className="signal-label">Signal Chip</p>
-                  <p className="signal-body">Dark glass chip with accent label treatment.</p>
+                  <p className="funnel-stage-label">Funnel Stage</p>
+                  <p className="funnel-stage-metric">Dark glass panel with warm accent label</p>
+                  <p className="funnel-stage-body">Used for the audience-to-lead funnel section on the live page.</p>
                 </div>
               </article>
 
@@ -259,6 +328,38 @@ export function HesperusStyleGuide() {
                     </div>
                   </div>
                 </div>
+              </article>
+            </div>
+          </div>
+
+          <div className="style-guide-section">
+            <div className="style-guide-heading">
+              <p className="section-label dark">Graphics Brief</p>
+              <h2>Use this section as the creative handoff for new on-brand graphics.</h2>
+            </div>
+            <div className="dual-card-grid">
+              <article className="content-card">
+                <p className="section-label dark">Visual Direction</p>
+                <ul className="quality-list">
+                  {graphicsRules.map((rule) => (
+                    <li key={rule}>
+                      <ShieldCheck className="h-4 w-4" />
+                      <span>{rule}</span>
+                    </li>
+                  ))}
+                </ul>
+              </article>
+
+              <article className="content-card accent">
+                <p className="section-label dark">Preferred Motifs</p>
+                <ul className="quality-list">
+                  {graphicsMotifs.map((motif) => (
+                    <li key={motif}>
+                      <ShieldCheck className="h-4 w-4" />
+                      <span>{motif}</span>
+                    </li>
+                  ))}
+                </ul>
               </article>
             </div>
           </div>

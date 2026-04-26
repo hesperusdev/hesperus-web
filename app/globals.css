@@ -69,6 +69,12 @@ ol {
   margin-inline: auto;
 }
 
+.container-full {
+  width: calc(100% - (var(--container-full-gutter) * 2));
+  max-width: none;
+  margin-inline: auto;
+}
+
 .container-medium {
   width: min(100%, var(--container-medium));
   max-width: 100%;
@@ -104,7 +110,7 @@ ol {
 
 .style-guide-stack {
   display: grid;
-  gap: 3rem;
+  gap: var(--space-section-stack);
 }
 
 .style-guide-section {
@@ -125,12 +131,7 @@ ol {
 
 .container-demo-card {
   display: grid;
-  gap: 0.85rem;
-  padding: 1rem;
-  border-radius: 1.15rem;
-  border: 1px solid rgb(var(--surface-border));
-  background: rgb(var(--surface-card));
-  box-shadow: 0 12px 28px rgba(70, 53, 98, 0.06);
+  gap: 0;
 }
 
 .container-demo-label-row {
@@ -151,10 +152,10 @@ ol {
 }
 
 .container-demo-frame {
-  width: 100%;
-  border-radius: 1rem;
+  width: calc(100vw - (var(--container-full-gutter) * 2));
+  margin-left: calc(50% - 50vw + var(--container-full-gutter));
   background: transparent;
-  overflow: auto;
+  overflow: visible;
 }
 
 .container-demo-overlay {
@@ -163,16 +164,22 @@ ol {
   justify-content: center;
   min-height: 13rem;
   padding-top: 2.75rem;
-  border-radius: 0.95rem;
   position: relative;
 }
 
+.container-demo-full,
 .container-demo-page,
 .container-demo-large {
   width: 100%;
 }
 
+.container-demo-full {
+  border: 2px solid rgb(73 68 105);
+  background: rgba(73, 68, 105, 0.08);
+}
+
 .container-demo-page {
+  width: min(var(--page-wrapper-max), calc(100% - var(--page-wrapper-gutter)));
   border: 2px solid rgb(132 89 223);
   background: rgba(132, 89, 223, 0.08);
 }
@@ -215,6 +222,11 @@ ol {
   color: white;
 }
 
+.container-demo-tag-full {
+  background: rgb(73 68 105);
+  color: white;
+}
+
 .container-demo-tag-large {
   background: rgb(var(--accent));
   color: white;
@@ -234,6 +246,105 @@ ol {
   color: rgb(var(--surface-muted));
 }
 
+.spacing-guide {
+  display: grid;
+  gap: var(--space-container-gap);
+}
+
+.spacing-card {
+  display: grid;
+  gap: 1rem;
+  padding: 1.25rem;
+  border-radius: 1.15rem;
+  border: 1px solid rgb(var(--surface-border));
+  background: rgb(var(--surface-card));
+  box-shadow: 0 12px 28px rgba(70, 53, 98, 0.06);
+}
+
+.spacing-card-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.65rem;
+}
+
+.spacing-card-header h3 {
+  font-size: 1rem;
+}
+
+.spacing-card-header p {
+  color: rgb(var(--surface-muted));
+  font-size: 0.92rem;
+}
+
+.spacing-demo {
+  display: grid;
+  align-items: center;
+}
+
+.spacing-demo-band {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3.5rem;
+  border-radius: 0.95rem;
+  border: 1px solid rgb(var(--surface-border));
+  background: rgb(250 246 241);
+  color: rgb(var(--surface-text));
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.spacing-demo-band-dark {
+  background: rgb(23 20 52);
+  border-color: rgb(73 68 105);
+  color: rgb(var(--hero-text));
+}
+
+.spacing-demo-band-accent {
+  background: rgba(255, 110, 58, 0.12);
+  border-color: rgba(255, 110, 58, 0.3);
+}
+
+.spacing-demo-band-accent-light {
+  background: rgba(255, 169, 74, 0.16);
+  border-color: rgba(255, 169, 74, 0.35);
+}
+
+.spacing-demo-measure {
+  position: relative;
+  width: 100%;
+}
+
+.spacing-demo-measure::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 50%;
+  width: 2px;
+  transform: translateX(-50%);
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      rgba(132, 89, 223, 0.95) 0,
+      rgba(132, 89, 223, 0.95) 0.35rem,
+      transparent 0.35rem,
+      transparent 0.7rem
+    );
+}
+
+.spacing-demo-measure-section {
+  min-height: var(--space-section);
+}
+
+.spacing-demo-measure-stack {
+  min-height: var(--space-section-stack);
+}
+
+.spacing-demo-measure-container {
+  min-height: var(--space-container-gap);
+}
+
 .token-grid,
 .style-component-grid {
   display: grid;
@@ -242,26 +353,31 @@ ol {
 
 .token-card {
   display: grid;
-  gap: 0.85rem;
-  padding: 1rem;
-  border-radius: 1.15rem;
+  gap: 0.65rem;
+  padding: 0.85rem;
+  border-radius: 1rem;
   border: 1px solid rgb(var(--surface-border));
   background: rgb(var(--surface-card));
   box-shadow: 0 12px 28px rgba(70, 53, 98, 0.06);
 }
 
 .token-card h3 {
-  font-size: 1rem;
+  font-size: 0.92rem;
 }
 
 .token-card p {
   color: rgb(var(--surface-muted));
-  font-size: 0.92rem;
+  font-size: 0.82rem;
+}
+
+.token-meta {
+  display: grid;
+  gap: 0.08rem;
 }
 
 .token-swatch {
-  height: 6rem;
-  border-radius: 0.95rem;
+  height: 4rem;
+  border-radius: 0.8rem;
   border: 1px solid rgba(0, 0, 0, 0.08);
 }
 
@@ -311,13 +427,18 @@ ol {
   margin-top: 1rem;
 }
 
-.style-guide-type-main,
-.style-guide-type-accent {
+.style-guide-type-main {
   font-size: clamp(2rem, 5vw, 4rem);
+  line-height: 1.02;
+  font-weight: 800;
+  color: rgb(var(--surface-text));
 }
 
-.style-guide-type-accent {
-  width: fit-content;
+.style-guide-type-note,
+.style-guide-footnote {
+  color: rgb(var(--surface-muted));
+  font-size: 0.94rem;
+  line-height: 1.55;
 }
 
 .style-button-row {
@@ -336,14 +457,12 @@ ol {
 }
 
 .style-guide-video-shell {
-  width: min(100%, var(--media-large));
+  width: 100%;
   margin: 0 auto;
 }
 
-.style-guide-signal-chip {
-  padding: 1rem;
-  border-radius: 1.2rem;
-  background: linear-gradient(180deg, rgb(20 18 44) 0%, rgb(28 22 59) 100%);
+.style-guide-funnel-stage {
+  width: 100%;
 }
 
 .style-guide-cta {
@@ -554,52 +673,214 @@ ol {
   font-size: 0.98rem;
 }
 
-.hero-signal-section {
+.funnel-comparison-section {
   position: relative;
   z-index: 1;
-  margin-top: 0.5rem;
+  display: grid;
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+  width: 100%;
+  overflow-x: hidden;
 }
 
-.hero-signal-row {
+.funnel-comparison-intro {
   display: grid;
-  gap: 1rem;
-}
-
-.signal-chip {
-  display: grid;
-  grid-template-columns: auto 1fr;
   gap: 0.8rem;
-  align-items: start;
+  justify-items: center;
+  text-align: center;
 }
 
-.signal-icon {
+.funnel-comparison-intro h2 {
+  max-width: 48rem;
+  font-size: clamp(1.9rem, 3.5vw, 3rem);
+  line-height: 1.06;
+  letter-spacing: -0.04em;
+}
+
+.funnel-comparison-intro p:last-child {
+  max-width: 56rem;
+  color: rgb(var(--hero-muted));
+  line-height: 1.7;
+}
+
+.funnel-comparison-diagram {
+  display: grid;
+  gap: 0.7rem;
+  width: 100%;
+  padding-inline: var(--container-full-gutter);
+  overflow-x: hidden;
+}
+
+.funnel-comparison-stage {
+  display: grid;
+  gap: 0.8rem;
+  padding: 0.6rem 0.85rem;
+  width: 100%;
+  max-width: 100%;
+  border-radius: 1rem;
+  border: 1px solid rgba(173, 158, 233, 0.18);
+  background: rgba(20, 18, 44, 0.78);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+  backdrop-filter: blur(14px);
+}
+
+.funnel-comparison-left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-width: 0;
+}
+
+.funnel-comparison-step {
+  font-size: clamp(1.4rem, 2.5vw, 2.2rem);
+  font-weight: 800;
+  line-height: 1;
+  color: rgb(var(--hero-text));
+}
+
+.funnel-comparison-badge {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 2.7rem;
-  height: 2.7rem;
+  width: 2.5rem;
+  height: 2.5rem;
   border-radius: 999px;
-  border: 1px solid rgba(255, 151, 76, 0.35);
-  background: rgba(31, 24, 60, 0.82);
-  color: rgb(var(--accent-2));
+  border: 1px solid currentColor;
 }
 
-.signal-label {
-  color: rgb(var(--accent));
-  font-size: 0.84rem;
+.funnel-comparison-title {
+  color: rgb(var(--hero-text));
+  font-size: clamp(1.05rem, 1.4vw, 1.45rem);
+  font-weight: 800;
+  line-height: 1.05;
+}
+
+.funnel-comparison-transition {
+  margin-top: 0.15rem;
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.funnel-comparison-body {
+  margin-top: 0.2rem;
+  color: rgb(var(--hero-muted));
+  line-height: 1.35;
+  font-size: 0.9rem;
+}
+
+.funnel-comparison-metric {
+  padding: 0.35rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.funnel-comparison-metric-label,
+.funnel-comparison-actions-title {
+  font-size: 0.82rem;
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
-.signal-body {
-  margin-top: 0.2rem;
+.funnel-comparison-metric-value {
+  margin-top: 0.15rem;
+  font-size: clamp(1.45rem, 2.6vw, 2rem);
+  font-weight: 800;
+  line-height: 1;
+}
+
+.funnel-comparison-metric-footnote {
+  margin-top: 0.15rem;
   color: rgb(var(--hero-muted));
-  line-height: 1.55;
+  line-height: 1.35;
+  font-size: 0.84rem;
+}
+
+.funnel-comparison-list {
+  margin: 0.35rem 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.22rem;
+}
+
+.funnel-comparison-list li {
+  color: rgb(var(--hero-text));
+  line-height: 1.28;
+  padding-left: 0.9rem;
+  font-size: 0.88rem;
+  font-weight: 400;
+  position: relative;
+}
+
+.funnel-comparison-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55rem;
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 999px;
+  background: currentColor;
+}
+
+.funnel-tone-violet {
+  color: #b47cff;
+}
+
+.funnel-tone-orange {
+  color: #ff6e3a;
+}
+
+.funnel-tone-blue {
+  color: #4b8bff;
+}
+
+.funnel-tone-green {
+  color: #9ddb63;
+}
+
+.funnel-comparison-footer {
+  display: grid;
+  gap: 1rem;
+  padding: 1.2rem;
+  border-radius: 1.4rem;
+  border: 1px solid rgba(173, 158, 233, 0.18);
+  background: rgba(13, 12, 36, 0.9);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+}
+
+.funnel-comparison-footer-claim p {
+  color: rgb(var(--hero-text));
+  font-size: 1.45rem;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.funnel-comparison-footer-claim strong {
+  display: block;
+  margin-top: 0.35rem;
+  color: rgb(var(--accent));
+  font-size: 1.65rem;
+  line-height: 1.1;
+}
+
+.funnel-comparison-footer-steps {
+  display: grid;
+  gap: 0.75rem;
+  color: rgb(var(--hero-text));
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.funnel-comparison-footer-steps span {
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .hero-media {
-  width: 100%;
+  max-width: 100%;
 }
 
 .feature-copy h2,
@@ -838,14 +1119,14 @@ ol {
 .light-section,
 .content-section,
 .cta-section {
-  padding: 4.5rem 0;
+  padding: var(--space-section) 0;
 }
 
 .feature-grid,
 .dual-card-grid,
 .cta-banner {
   display: grid;
-  gap: 1.6rem;
+  gap: var(--space-container-gap);
 }
 
 .feature-list {
@@ -1034,8 +1315,12 @@ ol {
 }
 
 @media (min-width: 960px) {
-  .token-grid,
-  .style-component-grid {
+  .token-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .style-component-grid,
+  .spacing-guide {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -1045,8 +1330,64 @@ ol {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   }
 
-  .hero-signal-row {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+  .funnel-comparison-stage {
+    display: flex;
+    align-items: stretch;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .funnel-comparison-left {
+    flex: 0 0 4.75rem;
+    justify-content: center;
+  }
+
+  .funnel-comparison-main {
+    flex: 1 1 42%;
+  }
+
+  .funnel-comparison-metric {
+    flex: 0 1 22%;
+    padding: 0 0.7rem;
+    border-top: 0;
+    border-bottom: 0;
+    border-left: 1px solid rgba(255, 255, 255, 0.12);
+    border-right: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .funnel-comparison-main,
+  .funnel-comparison-metric,
+  .funnel-comparison-actions {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .funnel-comparison-actions {
+    flex: 1 1 28%;
+    padding-left: 0.7rem;
+  }
+
+  .funnel-comparison-footer {
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    align-items: center;
+  }
+
+  .funnel-comparison-footer-steps {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .funnel-comparison-footer-steps span {
+    padding-top: 0;
+    padding-left: 1rem;
+    border-top: 0;
+    border-left: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .funnel-comparison-footer-steps span:first-child {
+    border-left: 0;
+    padding-left: 0;
   }
 }
 
@@ -1071,6 +1412,14 @@ ol {
 
   .hero-description {
     max-width: 60rem;
+  }
+
+  .funnel-stage,
+  .funnel-stage-1,
+  .funnel-stage-2,
+  .funnel-stage-3,
+  .funnel-stage-4 {
+    width: 100%;
   }
 }
 

@@ -328,7 +328,8 @@ ol {
   top: 2rem;
   width: 11.8rem;
   height: 11.8rem;
-  transform: translateX(-50%);
+  transform: translateX(-50%) rotate(3deg);
+  transform-origin: center 62%;
   border-radius: 45% 45% 42% 42%;
   background:
     radial-gradient(circle at 50% 35%, rgb(255 248 234) 0%, rgb(255 225 196) 56%, rgb(199 163 229) 100%);
@@ -339,13 +340,41 @@ ol {
 
 .creature-antenna {
   position: absolute;
-  left: 52%;
+  left: 57%;
   top: -2.8rem;
-  width: 0.7rem;
-  height: 4rem;
-  transform: translateX(-50%) rotate(12deg);
-  border-radius: 999px;
+  width: 0.78rem;
+  height: 4.1rem;
+  transform: translateX(-50%) rotate(15deg);
+  transform-origin: bottom center;
+  border-radius: 999px 999px 1.3rem 999px;
   background: linear-gradient(180deg, rgb(173 108 255) 0%, rgb(var(--accent-3)) 100%);
+}
+
+.creature-antenna::before {
+  content: "";
+  position: absolute;
+  left: 0.12rem;
+  top: -0.1rem;
+  width: 0.42rem;
+  height: 2.4rem;
+  border-radius: 999px 999px 1rem 999px;
+  background: rgba(255, 209, 245, 0.34);
+  transform: rotate(-6deg);
+}
+
+.creature-antenna::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -0.52rem;
+  width: 1rem;
+  height: 1rem;
+  transform: translateX(-50%);
+  border-radius: 999px;
+  background: radial-gradient(circle at 35% 35%, rgb(255 250 223) 0%, rgb(var(--accent-2)) 48%, rgb(var(--accent)) 100%);
+  box-shadow:
+    0 0 0 0.18rem rgba(255, 169, 74, 0.18),
+    0 0 18px rgba(255, 145, 72, 0.58);
 }
 
 .creature-face {
@@ -375,11 +404,11 @@ ol {
 }
 
 .eye.left {
-  left: 2.8rem;
+  left: 2.25rem;
 }
 
 .eye.right {
-  right: 2.8rem;
+  right: 2.25rem;
 }
 
 .creature-cape {
@@ -420,9 +449,15 @@ ol {
   height: 3.1rem;
   transform: translateX(-50%);
   border-radius: 999px;
-  background: linear-gradient(135deg, rgb(var(--accent-2)) 0%, rgb(var(--accent)) 100%);
+  background: radial-gradient(circle, rgba(255, 224, 150, 0.92) 0%, rgba(255, 165, 80, 0.68) 46%, rgba(255, 110, 58, 0.12) 100%);
   color: white;
-  box-shadow: 0 0 26px rgba(255, 150, 63, 0.44);
+  box-shadow:
+    0 0 14px rgba(255, 176, 97, 0.42),
+    0 0 34px rgba(255, 133, 61, 0.18);
+}
+
+.creature-star svg {
+  filter: drop-shadow(0 0 6px rgba(255, 209, 120, 0.42));
 }
 
 .hero-note {

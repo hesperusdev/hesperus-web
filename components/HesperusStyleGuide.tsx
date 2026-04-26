@@ -44,7 +44,7 @@ const graphicsMotifs = [
 export function HesperusStyleGuide() {
   return (
     <main className="style-guide-page">
-      <section className="hero-shell style-guide-shell">
+      <section className="style-guide-hero-section hero-shell style-guide-shell">
         <div className="hero-noise" />
         <header className="site-header shell">
           <div className="site-header-inner">
@@ -84,7 +84,7 @@ export function HesperusStyleGuide() {
         </div>
       </section>
 
-      <section className="light-section">
+      <section className="style-guide-content-section light-section">
         <div className="shell style-guide-stack">
           <div className="style-guide-section">
             <div className="style-guide-heading">
@@ -176,7 +176,7 @@ export function HesperusStyleGuide() {
             <div className="spacing-guide">
               <article className="spacing-card">
                 <div className="spacing-card-header">
-                  <h3>Section Vertical Padding</h3>
+                  <h3>Special Section Inset</h3>
                   <p>{sectionPaddingLabel}</p>
                 </div>
                 <div className="spacing-demo spacing-demo-section">
@@ -188,7 +188,7 @@ export function HesperusStyleGuide() {
 
               <article className="spacing-card">
                 <div className="spacing-card-header">
-                  <h3>Section Stack Gap</h3>
+                  <h3>Section Spacer</h3>
                   <p>{sectionStackGapLabel}</p>
                 </div>
                 <div className="spacing-demo spacing-demo-stack">
@@ -364,12 +364,12 @@ export function HesperusStyleGuide() {
             </div>
           </div>
 
-          <section className="cta-section style-guide-cta">
+          <section className="style-guide-cta-section cta-section style-guide-cta">
             <div className="cta-banner">
               <div className="cta-banner-visual">
                 <div className="mini-creature">
                   <Image
-                    src="/brand/hesperus-yuruchara.webp"
+                    src="/hesperus-yuruchara.webp"
                     alt="Hesperus mascot"
                     width={640}
                     height={960}

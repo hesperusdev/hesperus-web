@@ -51,6 +51,45 @@ ol {
 
 .hesperus-page {
   min-height: 100vh;
+  position: relative;
+  background:
+    radial-gradient(circle at 16% 18%, rgba(255, 142, 72, 0.12), transparent 18%),
+    radial-gradient(circle at 78% 24%, rgba(212, 97, 255, 0.16), transparent 22%),
+    radial-gradient(circle at 70% 74%, rgba(255, 105, 76, 0.08), transparent 18%),
+    linear-gradient(180deg, rgb(var(--bg-dark)) 0%, rgb(var(--bg-dark-2)) 54%, rgb(14 11 37) 100%);
+}
+
+.hesperus-page::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    radial-gradient(circle, rgba(255, 166, 84, 0.55) 0 1.1px, transparent 1.4px),
+    radial-gradient(circle, rgba(255, 255, 255, 0.22) 0 1px, transparent 1.3px),
+    radial-gradient(circle, rgba(255, 108, 78, 0.22) 0 1px, transparent 1.3px);
+  background-size: 220px 220px, 260px 260px, 320px 320px;
+  background-position: 0 0, 90px 140px, 30px 70px;
+  opacity: 0.35;
+}
+
+.hesperus-page > * {
+  position: relative;
+  z-index: 1;
+}
+
+.hesperus-page > section + section,
+.hesperus-page > footer {
+  margin-top: var(--space-section-stack);
+}
+
+.hesperus-page > section[id] {
+  scroll-margin-top: 3rem;
+}
+
+.section-shell > :last-child {
+  margin-bottom: 0 !important;
 }
 
 .style-guide-page {
@@ -476,14 +515,80 @@ ol {
 
 .hero-shell {
   position: relative;
-  overflow: hidden;
-  padding-bottom: 3rem;
-  background:
-    radial-gradient(circle at 15% 18%, rgba(255, 142, 72, 0.16), transparent 18%),
-    radial-gradient(circle at 76% 30%, rgba(212, 97, 255, 0.22), transparent 22%),
-    radial-gradient(circle at 70% 74%, rgba(255, 105, 76, 0.14), transparent 18%),
-    linear-gradient(180deg, rgb(var(--bg-dark)) 0%, rgb(var(--bg-dark-2)) 54%, rgb(14 11 37) 100%);
   color: rgb(var(--hero-text));
+}
+
+.funnel-section {
+  position: relative;
+  color: rgb(var(--hero-text));
+}
+
+.setup-section {
+  color: rgb(var(--hero-text));
+}
+
+.setup-section-shell {
+  display: grid;
+  gap: var(--space-container-gap);
+}
+
+.setup-section-intro {
+  display: grid;
+  gap: 0.85rem;
+  justify-items: center;
+  text-align: center;
+}
+
+.setup-section-intro h2 {
+  max-width: 50rem;
+  font-size: clamp(2rem, 4vw, 3.1rem);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+}
+
+.setup-section-intro p:last-child {
+  max-width: 54rem;
+  color: rgb(var(--hero-muted));
+  line-height: 1.7;
+}
+
+.setup-section-grid {
+  display: grid;
+  gap: var(--space-container-gap);
+}
+
+.setup-step-card {
+  display: grid;
+  gap: 0.8rem;
+  padding: 1.4rem;
+  border-radius: 1.4rem;
+  border: 1px solid rgba(173, 158, 233, 0.18);
+  background: rgba(20, 18, 44, 0.62);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.16);
+  backdrop-filter: blur(14px);
+}
+
+.setup-step-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 999px;
+  background: rgba(255, 169, 74, 0.16);
+  color: rgb(var(--accent-2));
+  font-size: 0.95rem;
+  font-weight: 800;
+}
+
+.setup-step-card h3 {
+  font-size: 1.08rem;
+  line-height: 1.2;
+}
+
+.setup-step-card p {
+  color: rgb(var(--hero-muted));
+  line-height: 1.65;
 }
 
 .hero-noise {
@@ -574,7 +679,9 @@ ol {
   background: linear-gradient(135deg, rgb(var(--accent)) 0%, rgb(255 133 61) 100%);
   color: white;
   font-weight: 700;
-  box-shadow: 0 16px 40px rgba(255, 107, 55, 0.34);
+  box-shadow:
+    0 10px 24px rgba(255, 107, 55, 0.22),
+    0 0 22px rgba(255, 138, 73, 0.22);
 }
 
 .primary-button.large {
@@ -595,7 +702,7 @@ ol {
   gap: 1.5rem;
   align-items: center;
   justify-items: center;
-  padding: 3rem 0 2rem;
+  padding: 3rem 0 0;
 }
 
 .hero-copy {
@@ -678,7 +785,6 @@ ol {
   z-index: 1;
   display: grid;
   gap: 1.25rem;
-  margin-top: 1.5rem;
   width: 100%;
   overflow-x: hidden;
 }
@@ -705,23 +811,116 @@ ol {
 
 .funnel-comparison-diagram {
   display: grid;
-  gap: 0.7rem;
+  gap: 0.12rem;
   width: 100%;
   padding-inline: var(--container-full-gutter);
   overflow-x: hidden;
 }
 
+.funnel-comparison-stage-wrap {
+  display: grid;
+  width: 100%;
+  gap: 0;
+}
+
 .funnel-comparison-stage {
   display: grid;
   gap: 0.8rem;
-  padding: 0.6rem 0.85rem;
+  position: relative;
+  isolation: isolate;
+  padding-block: 0.7rem;
+  padding-inline: calc(max(var(--stage-top-inset), var(--stage-bottom-inset)) + 1rem);
   width: 100%;
   max-width: 100%;
-  border-radius: 1rem;
-  border: 1px solid rgba(173, 158, 233, 0.18);
-  background: rgba(20, 18, 44, 0.78);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
-  backdrop-filter: blur(14px);
+  --stage-top-inset: 0rem;
+  --stage-bottom-inset: 2.5rem;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  backdrop-filter: none;
+}
+
+.funnel-comparison-stage::before,
+.funnel-comparison-stage::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  clip-path: polygon(
+    var(--stage-top-inset) 0,
+    calc(100% - var(--stage-top-inset)) 0,
+    calc(100% - var(--stage-bottom-inset)) 100%,
+    var(--stage-bottom-inset) 100%
+  );
+}
+
+.funnel-comparison-stage::before {
+  z-index: 0;
+  background: rgba(173, 158, 233, 0.22);
+  filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.18));
+}
+
+.funnel-comparison-stage::after {
+  z-index: 1;
+  inset: 2px;
+  background: rgba(20, 18, 44, 0.88);
+}
+
+.funnel-comparison-stage-final::before {
+  background: linear-gradient(135deg, rgba(157, 219, 99, 0.5) 0%, rgba(74, 201, 126, 0.34) 100%);
+  filter: drop-shadow(0 16px 38px rgba(108, 190, 86, 0.24));
+}
+
+.funnel-comparison-stage-final::after {
+  background:
+    radial-gradient(circle at 18% 50%, rgba(157, 219, 99, 0.16), transparent 32%),
+    linear-gradient(135deg, rgba(33, 26, 60, 0.96) 0%, rgba(22, 19, 50, 0.96) 100%);
+}
+
+.funnel-comparison-stage > * {
+  position: relative;
+  z-index: 2;
+}
+
+.funnel-comparison-stage-1 {
+  --stage-top-inset: 0rem;
+  --stage-bottom-inset: 2.75rem;
+}
+
+.funnel-comparison-stage-2 {
+  --stage-top-inset: 2.75rem;
+  --stage-bottom-inset: 5.5rem;
+}
+
+.funnel-comparison-stage-3 {
+  --stage-top-inset: 5.5rem;
+  --stage-bottom-inset: 8.25rem;
+}
+
+.funnel-comparison-stage-4 {
+  --stage-top-inset: 8.25rem;
+  --stage-bottom-inset: 11rem;
+}
+
+.funnel-comparison-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-block: 0.32rem;
+}
+
+.funnel-comparison-arrow svg {
+  display: block;
+  stroke-width: 2.25;
+  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.18));
+}
+
+.funnel-comparison-arrow-muted {
+  color: rgba(248, 243, 237, 0.92);
+}
+
+.funnel-comparison-arrow-muted svg {
+  stroke-width: 1;
+  filter: none;
 }
 
 .funnel-comparison-left {
@@ -838,6 +1037,22 @@ ol {
 
 .funnel-tone-green {
   color: #9ddb63;
+}
+
+.funnel-comparison-stage-final .funnel-comparison-title,
+.funnel-comparison-stage-final .funnel-comparison-metric-value {
+  color: rgb(190 240 143);
+}
+
+.funnel-comparison-stage-final .funnel-comparison-actions-title,
+.funnel-comparison-stage-final .funnel-comparison-metric-label {
+  color: rgb(157 219 99);
+}
+
+.funnel-comparison-stage-final .funnel-comparison-transition,
+.funnel-comparison-stage-final .funnel-comparison-badge,
+.funnel-comparison-stage-final .funnel-comparison-step {
+  color: rgb(157 219 99);
 }
 
 .funnel-comparison-footer {
@@ -1119,7 +1334,7 @@ ol {
 .light-section,
 .content-section,
 .cta-section {
-  padding: var(--space-section) 0;
+  padding: 0;
 }
 
 .feature-grid,
@@ -1330,11 +1545,17 @@ ol {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   }
 
+  .setup-section-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
   .funnel-comparison-stage {
     display: flex;
     align-items: stretch;
     width: 100%;
     max-width: 100%;
+    padding-block: 0.7rem;
+    padding-inline: calc(max(var(--stage-top-inset), var(--stage-bottom-inset)) + 1.15rem);
   }
 
   .funnel-comparison-left {
@@ -1385,10 +1606,18 @@ ol {
     border-left: 1px solid rgba(255, 255, 255, 0.12);
   }
 
-  .funnel-comparison-footer-steps span:first-child {
-    border-left: 0;
-    padding-left: 0;
-  }
+.funnel-comparison-footer-steps span:first-child {
+  border-left: 0;
+  padding-left: 0;
+}
+
+.process-section {
+  color: rgb(var(--hero-text));
+}
+
+.process-section-shell {
+  width: 100%;
+}
 }
 
 @media (max-width: 959px) {
@@ -1412,6 +1641,26 @@ ol {
 
   .hero-description {
     max-width: 60rem;
+  }
+
+  .funnel-comparison-stage-1 {
+    --stage-top-inset: 0rem;
+    --stage-bottom-inset: 1.2rem;
+  }
+
+  .funnel-comparison-stage-2 {
+    --stage-top-inset: 1.2rem;
+    --stage-bottom-inset: 2.4rem;
+  }
+
+  .funnel-comparison-stage-3 {
+    --stage-top-inset: 2.4rem;
+    --stage-bottom-inset: 3.6rem;
+  }
+
+  .funnel-comparison-stage-4 {
+    --stage-top-inset: 3.6rem;
+    --stage-bottom-inset: 4.8rem;
   }
 
   .funnel-stage,

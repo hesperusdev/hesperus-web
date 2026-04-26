@@ -9,7 +9,7 @@ export const designSystem = {
   containerSmallRem: 38,
   largeMediaRem: 72,
   sectionPaddingRem: 4.5,
-  sectionStackGapRem: 3,
+  sectionStackGapRem: 6,
   containerGapRem: 1.6,
 } as const;
 

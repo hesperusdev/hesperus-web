@@ -2,6 +2,7 @@ import Image from "next/image";
 import { CloudflareVideoPlayer } from "./CloudflareVideoPlayer";
 import {
   ArrowRight,
+  ArrowBigDown,
   BellRing,
   CheckCircle2,
   Compass,
@@ -139,6 +140,21 @@ const executionPoints = [
   "From there, the traffic moves to your website, landing page, or booked-call flow, with analytics in place so performance can be tracked.",
 ];
 
+const setupPoints = [
+  {
+    title: "Discovery And Fit",
+    body: "I start with a fit conversation to understand the business, the niche, the offer, and whether this channel-first lead flow is actually a match.",
+  },
+  {
+    title: "Source Channel Foundation",
+    body: "Before launch, I make sure the source channel is credible: positioning, channel art, descriptions, and at least five evergreen videos that can convert curiosity into trust.",
+  },
+  {
+    title: "Targeting, Tracking, And Launch Prep",
+    body: "Then I select the target channels, align the click path to the website or landing page, and make sure analytics and conversion tracking are in place before posting starts.",
+  },
+];
+
 const fitPoints = [
   "Businesses willing to build the full chain, not just buy comments in isolation",
   "Clients who can support a real source channel with strong setup and evergreen content",
@@ -159,7 +175,7 @@ const mailtoHref =
 export function HesperusLanding() {
   return (
     <main className="hesperus-page">
-      <section className="hero-shell">
+      <section className="hero-section hero-shell">
         <div className="hero-noise" />
         <header className="site-header shell">
           <div className="site-header-inner container-large">
@@ -189,7 +205,7 @@ export function HesperusLanding() {
           </div>
         </header>
 
-        <div id="top" className="shell hero-grid container-large">
+        <div id="top" className="shell hero-grid container-large section-shell">
           <div className="hero-copy container-large">
             <h1 className="hero-title">
               I Turn Other People&apos;s YouTube Audiences Into Your Leads.
@@ -207,14 +223,40 @@ export function HesperusLanding() {
             <a className="primary-button large" href={mailtoHref}>
               Book a Fit Call <ArrowRight className="h-4 w-4" />
             </a>
-            <a className="ghost-link" href="#how-it-works">
+            <a className="ghost-link" href="#setup">
               <PlayCircle className="h-5 w-5" />
               <span>See How It Works</span>
             </a>
           </div>
         </div>
 
-        <div className="funnel-comparison-section">
+      </section>
+
+      <section id="setup" className="setup-section content-section">
+        <div className="shell setup-section-shell container-large section-shell">
+          <div className="setup-section-intro">
+            <p className="section-label">The Setup</p>
+            <h2>Before anything goes live, I set up the foundation that makes this work.</h2>
+            <p>
+              This is not just comment posting. The source channel, the target-channel
+              strategy, the landing path, and the tracking all need to be in place first.
+            </p>
+          </div>
+
+          <div className="setup-section-grid">
+            {setupPoints.map((point, index) => (
+              <article key={point.title} className="setup-step-card">
+                <div className="setup-step-number">{index + 1}</div>
+                <h3>{point.title}</h3>
+                <p>{point.body}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="funnel" className="funnel-section">
+        <div className="funnel-comparison-section section-shell">
           <div className="funnel-comparison-intro container-large">
             <p className="section-label">The Funnel</p>
             <h2>This is the path from borrowed YouTube attention to a qualified lead.</h2>
@@ -226,59 +268,56 @@ export function HesperusLanding() {
           </div>
 
           <div className="funnel-comparison-diagram">
-            {funnelComparisonStages.map((stage) => (
-              <article
-                key={stage.step}
-                className={`funnel-comparison-stage funnel-tone-${stage.tone}`}
-              >
-                <div className="funnel-comparison-left">
-                  <div className="funnel-comparison-step">{stage.step}</div>
-                  <div className="funnel-comparison-badge">
-                    <stage.icon className="h-6 w-6" />
+            {funnelComparisonStages.map((stage, index) => (
+              <div key={stage.step} className="funnel-comparison-stage-wrap">
+                <article
+                  className={`funnel-comparison-stage funnel-comparison-stage-${index + 1} funnel-tone-${stage.tone}${index === funnelComparisonStages.length - 1 ? " funnel-comparison-stage-final" : ""}`}
+                >
+                  <div className="funnel-comparison-left">
+                    <div className="funnel-comparison-step">{stage.step}</div>
+                    <div className="funnel-comparison-badge">
+                      <stage.icon className="h-6 w-6" />
+                    </div>
                   </div>
-                </div>
 
-                <div className="funnel-comparison-main">
-                  <p className="funnel-comparison-title">{stage.stage}</p>
-                  <p className="funnel-comparison-transition">{stage.transition}</p>
-                  <p className="funnel-comparison-body">{stage.body}</p>
-                </div>
+                  <div className="funnel-comparison-main">
+                    <p className="funnel-comparison-title">{stage.stage}</p>
+                    <p className="funnel-comparison-transition">{stage.transition}</p>
+                    <p className="funnel-comparison-body">{stage.body}</p>
+                  </div>
 
-                <div className="funnel-comparison-metric">
-                  <p className="funnel-comparison-metric-label">{stage.metricLabel}</p>
-                  <p className="funnel-comparison-metric-value">{stage.metricValue}</p>
-                  <p className="funnel-comparison-metric-footnote">{stage.metricFootnote}</p>
-                </div>
+                  <div className="funnel-comparison-metric">
+                    <p className="funnel-comparison-metric-label">{stage.metricLabel}</p>
+                    <p className="funnel-comparison-metric-value">{stage.metricValue}</p>
+                    <p className="funnel-comparison-metric-footnote">{stage.metricFootnote}</p>
+                  </div>
 
-                <div className="funnel-comparison-actions">
-                  <p className="funnel-comparison-actions-title">What I Do</p>
-                  <ul className="funnel-comparison-list">
-                    {stage.bullets.map((bullet) => (
-                      <li key={bullet}>{bullet}</li>
-                    ))}
-                  </ul>
-                </div>
-              </article>
+                  <div className="funnel-comparison-actions">
+                    <p className="funnel-comparison-actions-title">What I Do</p>
+                    <ul className="funnel-comparison-list">
+                      {stage.bullets.map((bullet) => (
+                        <li key={bullet}>{bullet}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </article>
+
+                {index < funnelComparisonStages.length - 1 ? (
+                  <div
+                    className={`funnel-comparison-arrow${index < funnelComparisonStages.length - 2 ? " funnel-comparison-arrow-muted" : ` funnel-tone-${funnelComparisonStages[index + 1].tone}`}`}
+                    aria-hidden="true"
+                  >
+                    <ArrowBigDown className="h-6 w-6" />
+                  </div>
+                ) : null}
+              </div>
             ))}
-
-            <div className="funnel-comparison-footer">
-              <div className="funnel-comparison-footer-claim">
-                <p>I handle the entire process.</p>
-                <strong>You focus on closing.</strong>
-              </div>
-              <div className="funnel-comparison-footer-steps">
-                <span>Research</span>
-                <span>Comment</span>
-                <span>Track</span>
-                <span>Optimize</span>
-              </div>
-            </div>
           </div>
         </div>
       </section>
 
-      <section id="features" className="light-section">
-        <div className="shell feature-grid container-large">
+      <section id="features" className="features-section light-section">
+        <div className="shell feature-grid container-large section-shell">
           <div className="feature-copy">
             <p className="section-label dark">A Managed Outcome, Powered Internally By Hesperus</p>
             <h2>You hire me for the lead outcome. I use Hesperus behind the scenes to make the system run.</h2>
@@ -346,8 +385,8 @@ export function HesperusLanding() {
         </div>
       </section>
 
-      <section id="how-it-works" className="content-section">
-        <div className="shell dual-card-grid container-large">
+      <section id="how-it-works" className="how-it-works-section content-section">
+        <div className="shell dual-card-grid container-large section-shell">
           <article className="content-card">
             <p className="section-label dark">How It Works</p>
             <h2>I set up the whole chain so YouTube attention can turn into a measurable business result.</h2>
@@ -389,8 +428,8 @@ export function HesperusLanding() {
         </div>
       </section>
 
-      <section id="pricing" className="cta-section">
-        <div className="shell cta-banner container-large">
+      <section id="pricing" className="pricing-section cta-section">
+        <div className="shell cta-banner container-large section-shell">
           <div className="cta-banner-visual">
             <div className="mini-creature">
               <Image
@@ -434,7 +473,24 @@ export function HesperusLanding() {
         </div>
       </section>
 
-      <footer className="site-footer shell">
+      <section className="process-section">
+        <div className="shell process-section-shell section-shell">
+          <div className="funnel-comparison-footer">
+            <div className="funnel-comparison-footer-claim">
+              <p>I handle the entire process.</p>
+              <strong>You focus on closing.</strong>
+            </div>
+            <div className="funnel-comparison-footer-steps">
+              <span>Research</span>
+              <span>Comment</span>
+              <span>Track</span>
+              <span>Optimize</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer className="footer-section site-footer shell">
         <div className="footer-brand">
           <span className="brand-mark">
             <Star className="h-4 w-4" />

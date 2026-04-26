@@ -6,4 +6,4 @@ out/
 *.log
 .env*
 !.env.example
-brand/
+/brand/

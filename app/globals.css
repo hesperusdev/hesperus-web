@@ -40,6 +40,11 @@ a {
   text-decoration: none;
 }
 
+p,
+ul {
+  margin: 0;
+}
+
 .hesperus-shell {
   position: relative;
   overflow: hidden;
@@ -66,6 +71,10 @@ a {
   padding: 5rem 0;
 }
 
+.hero-section {
+  padding-top: 2.25rem;
+}
+
 .eyebrow {
   font-family: "Trebuchet MS", "Segoe UI", sans-serif;
   font-size: 0.78rem;
@@ -76,10 +85,10 @@ a {
 }
 
 .display {
+  margin: 0;
   font-size: clamp(2.8rem, 7vw, 5.8rem);
   line-height: 0.95;
   letter-spacing: -0.06em;
-  margin: 0;
 }
 
 .section-title {
@@ -89,6 +98,10 @@ a {
   letter-spacing: -0.05em;
 }
 
+.section-title-compact {
+  font-size: clamp(1.85rem, 3.4vw, 2.6rem);
+}
+
 .copy {
   color: rgb(var(--muted));
   font-family: "Trebuchet MS", "Segoe UI", sans-serif;
@@ -96,15 +109,58 @@ a {
   line-height: 1.75;
 }
 
-.hero-grid {
+.hero-grid,
+.grid-3,
+.grid-2,
+.split-grid,
+.lead-grid,
+.button-row,
+.hero-side,
+.hero-metrics,
+.signal-strip {
   display: grid;
-  gap: 2rem;
+  gap: 1rem;
+}
+
+.hero-grid {
   align-items: center;
+  gap: 2rem;
 }
 
 .hero-copy {
   position: relative;
   z-index: 1;
+}
+
+.hero-kicker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  align-items: center;
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+}
+
+.hero-kicker-badge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2rem;
+  padding: 0 0.85rem;
+  border-radius: 999px;
+  background: rgba(44, 93, 90, 0.1);
+  color: rgb(var(--accent-2));
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hero-kicker-text {
+  color: rgb(var(--muted));
+  font-size: 0.95rem;
+}
+
+.hero-lead {
+  max-width: 38rem;
 }
 
 .support-line {
@@ -125,7 +181,8 @@ a {
 }
 
 .cta-primary,
-.cta-secondary {
+.cta-secondary,
+.nav-cta {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -149,16 +206,17 @@ a {
   box-shadow: 0 16px 30px rgba(171, 76, 47, 0.24);
 }
 
-.cta-primary:hover,
-.cta-secondary:hover,
-.card-link:hover {
-  transform: translateY(-2px);
-}
-
-.cta-secondary {
+.cta-secondary,
+.nav-cta {
   border: 1px solid rgba(171, 76, 47, 0.22);
   background: rgba(255, 255, 255, 0.62);
   color: rgb(var(--text));
+}
+
+.cta-primary:hover,
+.cta-secondary:hover,
+.nav-cta:hover {
+  transform: translateY(-2px);
 }
 
 .hero-card,
@@ -176,8 +234,16 @@ a {
   border-radius: 2rem;
 }
 
-.hero-card {
-  padding: 1.25rem;
+.hero-card,
+.surface-card,
+.stat-card,
+.pricing-panel,
+.final-panel {
+  padding: 1.5rem;
+}
+
+.stat-card {
+  border-radius: 1.5rem;
 }
 
 .telegram-card {
@@ -194,6 +260,11 @@ a {
   background: linear-gradient(135deg, rgba(44, 93, 90, 0.92), rgba(29, 58, 56, 0.96));
   color: rgb(246 238 229);
   font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+}
+
+.telegram-topbar-copy {
+  display: grid;
+  gap: 0.3rem;
 }
 
 .telegram-pill {
@@ -226,7 +297,6 @@ a {
 }
 
 .telegram-text {
-  margin: 0;
   font-family: "Trebuchet MS", "Segoe UI", sans-serif;
   line-height: 1.65;
   color: rgb(54 45 38);
@@ -236,12 +306,6 @@ a {
   border-left: 4px solid rgba(171, 76, 47, 0.28);
   padding-left: 0.9rem;
   font-style: italic;
-}
-
-.button-row {
-  display: grid;
-  gap: 0.65rem;
-  margin-top: 1.2rem;
 }
 
 .mock-button {
@@ -270,19 +334,44 @@ a {
   color: rgb(92 76 62);
 }
 
-.grid-3,
-.grid-2 {
+.signal-card,
+.metric-card,
+.lead-step {
+  box-shadow: var(--shadow);
+}
+
+.signal-card {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.95rem 1rem;
+  border-radius: 1.25rem;
+  border: 1px solid rgba(171, 76, 47, 0.14);
+  background: rgba(255, 252, 248, 0.68);
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+  color: rgb(var(--muted));
+}
+
+.metric-card {
   display: grid;
-  gap: 1rem;
+  gap: 0.2rem;
+  padding: 1rem 1.05rem;
+  border-left: 4px solid rgba(171, 76, 47, 0.35);
+  border-radius: 1rem;
+  background: rgba(255, 250, 245, 0.72);
 }
 
-.stat-card,
-.surface-card {
-  padding: 1.5rem;
+.metric-value {
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: rgb(var(--text));
 }
 
-.stat-card {
-  border-radius: 1.5rem;
+.metric-label {
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+  font-size: 0.9rem;
+  color: rgb(var(--muted));
 }
 
 .stat-card h3,
@@ -294,32 +383,51 @@ a {
 
 .stat-card p,
 .surface-card p,
-.surface-card li {
+.surface-card li,
+.pricing-panel p,
+.final-panel p {
   font-family: "Trebuchet MS", "Segoe UI", sans-serif;
   color: rgb(var(--muted));
   line-height: 1.7;
 }
 
-.surface-card ul {
-  margin: 1rem 0 0;
-  padding-left: 1.1rem;
+.accent-icon {
+  color: rgb(var(--accent));
 }
 
-.steps {
-  counter-reset: step;
+.accent-icon-secondary {
+  color: rgb(var(--accent-2));
 }
 
-.step-card {
+.card-title-gap {
+  margin-top: 1rem !important;
+}
+
+.section-intro {
+  max-width: 48rem;
+}
+
+.section-gap {
+  margin-top: 1.5rem;
+}
+
+.flow-card {
   position: relative;
-  padding-top: 4.2rem;
+  padding-top: 5rem;
 }
 
-.step-card::before {
-  counter-increment: step;
-  content: counter(step, decimal-leading-zero);
+.flow-step {
   position: absolute;
   top: 1.35rem;
   left: 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 3.1rem;
+  min-height: 2rem;
+  padding: 0 0.7rem;
+  border-radius: 999px;
+  background: rgba(171, 76, 47, 0.1);
   font-family: "Trebuchet MS", "Segoe UI", sans-serif;
   font-size: 0.84rem;
   font-weight: 700;
@@ -327,15 +435,82 @@ a {
   color: rgb(var(--accent));
 }
 
+.tone-card-accent {
+  background: linear-gradient(180deg, rgba(252, 248, 242, 0.96), rgba(239, 247, 245, 0.94));
+}
+
+.check-list,
+.pricing-list {
+  display: grid;
+  gap: 0.85rem;
+  list-style: none;
+  padding: 0;
+  margin-top: 1.1rem;
+}
+
+.check-list li,
+.pricing-list li {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+  color: rgb(var(--muted));
+  line-height: 1.7;
+}
+
+.check-list svg,
+.pricing-list svg {
+  flex: 0 0 auto;
+  margin-top: 0.2rem;
+  color: rgb(var(--accent));
+}
+
+.lead-copy {
+  max-width: 38rem;
+}
+
+.lead-track {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.lead-step {
+  display: grid;
+  grid-template-columns: 3rem 1fr;
+  gap: 1rem;
+  align-items: start;
+  padding: 1rem 1.1rem;
+  border-radius: 1.35rem;
+  border: 1px solid rgba(171, 76, 47, 0.14);
+  background: rgba(255, 252, 248, 0.78);
+}
+
+.lead-step-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 999px;
+  background: rgba(44, 93, 90, 0.1);
+  color: rgb(var(--accent-2));
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+  font-weight: 700;
+}
+
+.lead-step-copy {
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+  color: rgb(var(--muted));
+  line-height: 1.7;
+}
+
 .pricing-panel,
 .final-panel {
   position: relative;
   overflow: hidden;
-  padding: 2rem;
   border-radius: 2rem;
   border: 1px solid rgba(171, 76, 47, 0.18);
-  background:
-    linear-gradient(145deg, rgba(255, 249, 242, 0.92), rgba(246, 233, 219, 0.9));
+  background: linear-gradient(145deg, rgba(255, 249, 242, 0.92), rgba(246, 233, 219, 0.9));
   box-shadow: var(--shadow);
 }
 
@@ -358,6 +533,16 @@ a {
   font-size: clamp(2.6rem, 6vw, 4rem);
   line-height: 1;
   letter-spacing: -0.08em;
+}
+
+.final-title {
+  max-width: 21ch;
+  margin-top: 0.4rem;
+}
+
+.final-copy {
+  max-width: 46rem;
+  margin-top: 1rem;
 }
 
 .footer-line {
@@ -435,12 +620,22 @@ a {
     gap: 2.5rem;
   }
 
+  .hero-metrics {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
   .grid-3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
-  .grid-2 {
+  .grid-2,
+  .split-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .lead-grid {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    align-items: start;
   }
 
   .button-row {
@@ -453,6 +648,10 @@ a {
     align-items: flex-start;
     flex-direction: column;
   }
+
+  .nav-actions {
+    flex-wrap: wrap;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -462,7 +661,7 @@ a {
 
   .cta-primary,
   .cta-secondary,
-  .card-link,
+  .nav-cta,
   .rise-in {
     transition: none;
     animation: none;

@@ -1,10 +1,15 @@
 import {
   ArrowRight,
+  BadgeDollarSign,
+  BotOff,
   CheckCircle2,
+  CircleDashed,
   Clock3,
-  MessageSquareText,
-  PlayCircle,
+  Eye,
+  MessageSquareQuote,
+  Radar,
   Send,
+  SendHorizontal,
   ShieldCheck,
   Sparkles,
   Users,
@@ -12,55 +17,90 @@ import {
 
 const benefits = [
   {
-    icon: PlayCircle,
+    icon: Eye,
     title: "Early Visibility",
-    body: "Show up while your audience is still watching, learning, and deciding who sounds credible in your market.",
+    body: "Get in front of buyers while they are still researching the topic, the creator, and which businesses sound credible in public.",
   },
   {
-    icon: MessageSquareText,
+    icon: MessageSquareQuote,
     title: "Better Comments",
-    body: "Review thoughtful drafts shaped around the actual video instead of generic AI filler or repetitive templates.",
+    body: "Review comments shaped around the actual video context instead of generic, repetitive, low-trust AI filler.",
   },
   {
     icon: Users,
     title: "Delegated Execution",
-    body: "Let an admin or team member handle fast approval inside Telegram without adding a full-time social media role.",
+    body: "Let an admin or team member manage approvals inside Telegram without building a full social media department.",
   },
 ];
 
 const howItWorks = [
-  "Hesperus monitors selected YouTube channels in your niche.",
-  "It identifies videos where your brand can contribute meaningfully.",
-  "It generates a thoughtful, brand-aligned comment draft.",
-  "The draft is delivered instantly via Telegram.",
-  "You or a team member reviews, approves, and posts.",
+  {
+    step: "01",
+    title: "Monitor the right channels",
+    body: "Hesperus watches selected YouTube channels in your niche and looks for moments where your brand can contribute meaningfully.",
+  },
+  {
+    step: "02",
+    title: "Draft the response fast",
+    body: "When a strong opening appears, Hesperus drafts a brand-aligned comment built around the actual video and audience context.",
+  },
+  {
+    step: "03",
+    title: "Review in Telegram",
+    body: "The opportunity lands in Telegram immediately so your team can approve, edit, reroll, or skip in a familiar workflow.",
+  },
+  {
+    step: "04",
+    title: "Post with human approval",
+    body: "The final decision stays with a person. The system is designed for speed and consistency without giving up judgment.",
+  },
 ];
 
-const executionModel = [
+const executionCards = [
+  {
+    icon: Radar,
+    title: "Detection and timing",
+    body: "Hesperus handles channel monitoring, timing, and opportunity discovery so your team only looks at high-value moments.",
+  },
   {
     icon: Sparkles,
-    title: "AI-assisted detection and drafting",
-    body: "Hesperus handles timing, monitoring, and first-draft creation so your team is only brought in when there is a real opportunity worth reviewing.",
+    title: "Comment creation",
+    body: "The draft is tailored to your brand voice and the specific conversation already happening under that video.",
   },
   {
     icon: ShieldCheck,
-    title: "Human-controlled approval",
-    body: "Your team keeps the final decision on whether to approve, edit, or skip. The workflow is designed for speed without giving up judgment.",
+    title: "Final approval",
+    body: "A real person approves the public-facing comment. That keeps quality high and removes the risk of blind posting.",
   },
+];
+
+const leadFlow = [
+  "Your brand appears inside a relevant YouTube conversation.",
+  "Viewers recognize the quality of the contribution and click through.",
+  "They explore your profile, channel, and positioning.",
+  "They visit your website or reach out directly.",
+  "Qualified inbound leads enter your sales process.",
 ];
 
 const qualityPoints = [
   "No bulk commenting.",
-  "No generic engagement bait.",
-  "No fake conversation loops.",
+  "No fake engagement loops.",
+  "No generic AI spam.",
   "No pretending automation is strategy.",
 ];
 
 const commandCenter = [
   "Receive opportunities in real time.",
-  "Review and approve from anywhere.",
-  "Keep the workflow inside a tool your team already checks.",
-  "Move fast enough to feel instant without losing control.",
+  "Approve quickly without leaving normal team workflow.",
+  "Delegate execution to an assistant or admin.",
+  "Keep the process visible and easy to manage.",
+];
+
+const bestFit = [
+  "Professional services with high customer value",
+  "Operators who care about reputation and tone",
+  "Teams that already believe YouTube drives trust",
+  "Businesses that want quality leads, not empty traffic",
 ];
 
 const pricingPoints = [
@@ -72,45 +112,55 @@ const pricingPoints = [
 ];
 
 const mailtoHref =
-  "mailto:hello@gethesperus.com?subject=Get%20Hesperus&body=I%20want%20to%20learn%20more%20about%20Hesperus.";
+  "mailto:hello@gethesperus.com?subject=Get%20Hesperus&body=I%20want%20to%20see%20if%20Hesperus%20fits%20my%20business.";
 
 export function HesperusLanding() {
   return (
     <main className="hesperus-shell">
-      <div className="page-wrap">
-        <nav className="site-nav">
-          <a href="#top" className="brand">
-            Hesperus
+      <header className="page-wrap site-nav">
+        <a href="#top" className="brand">
+          Hesperus
+        </a>
+        <div className="nav-actions">
+          <a className="nav-link" href="#how-it-works">
+            How It Works
           </a>
-          <div className="nav-actions">
-            <a className="nav-link" href="#how-it-works">
-              How It Works
-            </a>
-            <a className="nav-link" href="#pricing">
-              Pricing
-            </a>
-            <a className="cta-secondary" href={mailtoHref}>
-              hello@gethesperus.com
-            </a>
-          </div>
-        </nav>
-      </div>
+          <a className="nav-link" href="#pricing">
+            Pricing
+          </a>
+          <a className="nav-link" href="#fit">
+            Best Fit
+          </a>
+          <a className="nav-cta" href={mailtoHref}>
+            hello@gethesperus.com
+          </a>
+        </div>
+      </header>
 
-      <section id="top" className="section">
+      <section id="top" className="section hero-section">
         <div className="page-wrap hero-grid">
           <div className="hero-copy section-stack">
+            <div className="hero-kicker rise-in delay-1">
+              <span className="hero-kicker-badge">Premium Managed Service</span>
+              <span className="hero-kicker-text">Offered through Southwest Digital Marketing</span>
+            </div>
+
             <p className="eyebrow rise-in delay-1">AI-Assisted YouTube Engagement</p>
+
             <h1 className="display rise-in delay-2">
               Turn Other People&apos;s YouTube Audiences Into Your Inbound Lead Pipeline
             </h1>
-            <p className="copy rise-in delay-3">
-              Hesperus helps your team show up in the right YouTube conversations at
-              the exact moment your ideal customers are paying attention without
+
+            <p className="copy hero-lead rise-in delay-3">
+              Hesperus helps your team show up in the right YouTube conversations
+              at the exact moment your ideal customers are paying attention without
               hiring a full-time social media manager.
             </p>
+
             <p className="support-line rise-in delay-4">
               AI-assisted. Human-controlled. Built for quality engagement, not spam.
             </p>
+
             <div className="cta-row rise-in delay-4">
               <a className="cta-primary" href={mailtoHref}>
                 Get Hesperus <ArrowRight className="ml-2 h-4 w-4" />
@@ -119,47 +169,81 @@ export function HesperusLanding() {
                 See If This Fits Your Business
               </a>
             </div>
+
+            <div className="hero-metrics rise-in delay-4">
+              <div className="metric-card">
+                <span className="metric-value">Under 5 min</span>
+                <span className="metric-label">Typical daily approval time</span>
+              </div>
+              <div className="metric-card">
+                <span className="metric-value">Telegram-first</span>
+                <span className="metric-label">Review workflow for real-time decisions</span>
+              </div>
+              <div className="metric-card">
+                <span className="metric-value">$3,000/mo</span>
+                <span className="metric-label">Starting price for managed service</span>
+              </div>
+            </div>
           </div>
 
-          <div className="hero-card rise-in delay-4">
-            <div className="telegram-card">
-              <div className="telegram-topbar">
-                <div>
-                  <div className="telegram-pill">New YouTube Opportunity</div>
+          <div className="hero-side rise-in delay-4">
+            <div className="hero-card">
+              <div className="telegram-card">
+                <div className="telegram-topbar">
+                  <div className="telegram-topbar-copy">
+                    <span className="telegram-pill">New YouTube Opportunity</span>
+                    <strong>Telegram Review Flow</strong>
+                  </div>
+                  <SendHorizontal className="h-5 w-5" />
                 </div>
-                <Clock3 className="h-5 w-5" />
+
+                <div className="telegram-body">
+                  <div className="telegram-block">
+                    <span className="telegram-label">Channel</span>
+                    <p className="telegram-text">@CommercialRealEstateMentor</p>
+                  </div>
+
+                  <div className="telegram-block">
+                    <span className="telegram-label">Video</span>
+                    <p className="telegram-text">
+                      Why Smart Operators Are Repositioning Before the Next Tightening Cycle
+                    </p>
+                  </div>
+
+                  <div className="telegram-block">
+                    <span className="telegram-label">Why It Matters</span>
+                    <p className="telegram-text">
+                      The audience is actively discussing capital pressure, operator
+                      risk, and who they trust when markets get tighter.
+                    </p>
+                  </div>
+
+                  <div className="telegram-block">
+                    <span className="telegram-label">Draft Comment</span>
+                    <p className="telegram-text telegram-comment">
+                      The strongest point here is how fast trust goes up when an
+                      operator explains downside clearly instead of trying to sound
+                      invincible. That is what buyers remember.
+                    </p>
+                  </div>
+
+                  <div className="button-row">
+                    <div className="mock-button primary">Approve &amp; Copy</div>
+                    <div className="mock-button secondary">Edit</div>
+                    <div className="mock-button neutral">Skip</div>
+                  </div>
+                </div>
               </div>
-              <div className="telegram-body">
-                <div className="telegram-block">
-                  <span className="telegram-label">Channel</span>
-                  <p className="telegram-text">Commercial Real Estate Mentor</p>
-                </div>
-                <div className="telegram-block">
-                  <span className="telegram-label">Video</span>
-                  <p className="telegram-text">
-                    Why Smart Operators Are Repositioning Before the Next Tightening Cycle
-                  </p>
-                </div>
-                <div className="telegram-block">
-                  <span className="telegram-label">Why It Matters</span>
-                  <p className="telegram-text">
-                    The audience is actively discussing capital pressure, operator risk,
-                    and what they trust from sponsors right now.
-                  </p>
-                </div>
-                <div className="telegram-block">
-                  <span className="telegram-label">Draft Comment</span>
-                  <p className="telegram-text telegram-comment">
-                    Good breakdown. The piece that stood out most was how quickly
-                    disciplined operators can earn trust when they explain risk
-                    clearly instead of selling certainty.
-                  </p>
-                </div>
-                <div className="button-row">
-                  <div className="mock-button primary">Approve &amp; Copy</div>
-                  <div className="mock-button secondary">Edit</div>
-                  <div className="mock-button neutral">Skip</div>
-                </div>
+            </div>
+
+            <div className="signal-strip">
+              <div className="signal-card">
+                <Clock3 className="h-5 w-5" />
+                <span>Fast review while the conversation is still fresh</span>
+              </div>
+              <div className="signal-card">
+                <BotOff className="h-5 w-5" />
+                <span>Human approval stays in the loop</span>
               </div>
             </div>
           </div>
@@ -168,20 +252,21 @@ export function HesperusLanding() {
 
       <section className="section">
         <div className="page-wrap">
-          <div className="section-stack">
-            <p className="eyebrow">Why Teams Buy This</p>
-            <h2 className="section-title">A tighter path from YouTube attention to inbound lead flow</h2>
+          <div className="section-stack section-intro">
+            <p className="eyebrow">Three Reasons This Works</p>
+            <h2 className="section-title">A tighter path from YouTube attention to qualified inbound leads</h2>
             <p className="copy">
-              Instead of competing with large creators for attention, Hesperus helps
-              your brand participate where your market is already watching, learning,
-              and making buying decisions.
+              Instead of trying to out-compete large creators, Hesperus helps your
+              brand participate where your audience is already learning, comparing
+              options, and deciding who sounds credible.
             </p>
           </div>
-          <div className="grid-3" style={{ marginTop: "1.5rem" }}>
+
+          <div className="grid-3 section-gap">
             {benefits.map((item) => (
               <article key={item.title} className="stat-card">
-                <item.icon className="h-9 w-9" style={{ color: "rgb(var(--accent))" }} />
-                <h3 style={{ marginTop: "1rem" }}>{item.title}</h3>
+                <item.icon className="h-9 w-9 accent-icon" />
+                <h3 className="card-title-gap">{item.title}</h3>
                 <p>{item.body}</p>
               </article>
             ))}
@@ -191,41 +276,20 @@ export function HesperusLanding() {
 
       <section id="how-it-works" className="section">
         <div className="page-wrap">
-          <div className="section-stack">
+          <div className="section-stack section-intro">
             <p className="eyebrow">How It Works</p>
-            <h2 className="section-title">A fast workflow with a human still in control</h2>
+            <h2 className="section-title">The workflow is fast, but the public action is still controlled</h2>
             <p className="copy">
-              The goal is not to simulate engagement. The goal is to help your team
-              contribute intelligently while the conversation is still fresh.
+              Hesperus is designed to feel nearly instantaneous while preserving
+              quality and human judgment.
             </p>
           </div>
-          <div className="grid-3 steps" style={{ marginTop: "1.5rem" }}>
-            {howItWorks.map((step) => (
-              <article key={step} className="surface-card step-card">
-                <p>{step}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      <section className="section">
-        <div className="page-wrap grid-2">
-          <div className="surface-card">
-            <p className="eyebrow">Execution Model</p>
-            <h2 className="section-title" style={{ fontSize: "2.3rem", marginTop: "0.4rem" }}>
-              AI-assisted, human-controlled, easy to delegate
-            </h2>
-            <p className="copy">
-              Most clients do not handle this themselves. An admin, assistant, or
-              team member can manage the approval flow in under five minutes a day.
-            </p>
-          </div>
-          <div className="grid-2">
-            {executionModel.map((item) => (
-              <article key={item.title} className="surface-card">
-                <item.icon className="h-9 w-9" style={{ color: "rgb(var(--accent-2))" }} />
-                <h3 style={{ marginTop: "1rem" }}>{item.title}</h3>
+          <div className="grid-2 how-grid section-gap">
+            {howItWorks.map((item) => (
+              <article key={item.step} className="surface-card flow-card">
+                <div className="flow-step">{item.step}</div>
+                <h3>{item.title}</h3>
                 <p>{item.body}</p>
               </article>
             ))}
@@ -234,77 +298,148 @@ export function HesperusLanding() {
       </section>
 
       <section className="section">
-        <div className="page-wrap grid-2">
-          <article className="surface-card">
+        <div className="page-wrap">
+          <div className="section-stack section-intro">
+            <p className="eyebrow">Execution Model</p>
+            <h2 className="section-title">AI-assisted where speed matters, human-controlled where reputation matters</h2>
+            <p className="copy">
+              Most clients do not personally run this every day. An admin,
+              assistant, or team member can own the approval loop while leadership
+              retains visibility and control.
+            </p>
+          </div>
+
+          <div className="grid-3 section-gap">
+            {executionCards.map((item) => (
+              <article key={item.title} className="surface-card">
+                <item.icon className="h-9 w-9 accent-icon-secondary" />
+                <h3 className="card-title-gap">{item.title}</h3>
+                <p>{item.body}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="page-wrap split-grid">
+          <article className="surface-card tone-card">
             <p className="eyebrow">Built For Quality, Not Spam</p>
-            <h2 className="section-title" style={{ fontSize: "2.3rem", marginTop: "0.4rem" }}>
-              Better contribution beats fake volume
+            <h2 className="section-title section-title-compact">
+              Better contribution beats volume every time
             </h2>
             <p className="copy">
-              Hesperus is designed to avoid the exact behaviors that make most
-              automation tools feel cheap, repetitive, and risky for the brand.
+              Hesperus is designed specifically to avoid the behaviors that make
+              most automation feel cheap, repetitive, and unsafe for the brand.
             </p>
-            <ul>
+
+            <ul className="check-list">
               {qualityPoints.map((point) => (
-                <li key={point}>{point}</li>
+                <li key={point}>
+                  <CheckCircle2 className="h-4 w-4" />
+                  <span>{point}</span>
+                </li>
               ))}
             </ul>
           </article>
 
-          <article className="surface-card">
+          <article className="surface-card tone-card tone-card-accent">
             <p className="eyebrow">Telegram Command Center</p>
-            <h2 className="section-title" style={{ fontSize: "2.3rem", marginTop: "0.4rem" }}>
-              The approval loop stays inside Telegram
+            <h2 className="section-title section-title-compact">
+              Fast enough to feel automated, visible enough to stay accountable
             </h2>
             <p className="copy">
-              That keeps execution fast, visible, and easy to hand off to someone
-              on your team without disrupting their day.
+              Telegram works because it is already a real operating surface for a
+              distributed team. The approval flow stays lightweight and easy to hand off.
             </p>
-            <ul>
+
+            <ul className="check-list">
               {commandCenter.map((point) => (
-                <li key={point}>{point}</li>
+                <li key={point}>
+                  <CircleDashed className="h-4 w-4" />
+                  <span>{point}</span>
+                </li>
               ))}
             </ul>
           </article>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="page-wrap lead-grid">
+          <div className="lead-copy">
+            <p className="eyebrow">Lead Flow</p>
+            <h2 className="section-title">The point is not comments. The point is pipeline.</h2>
+            <p className="copy">
+              When your brand shows up intelligently inside the right conversations,
+              viewers start to recognize you before they ever land on your site.
+            </p>
+          </div>
+
+          <div className="lead-track">
+            {leadFlow.map((step, index) => (
+              <div key={step} className="lead-step">
+                <div className="lead-step-number">{index + 1}</div>
+                <div className="lead-step-copy">{step}</div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
       <section id="pricing" className="section">
-        <div className="page-wrap grid-2">
-          <div className="pricing-panel">
+        <div className="page-wrap split-grid">
+          <article className="pricing-panel">
             <p className="eyebrow">Pricing</p>
-            <h2 className="section-title" style={{ marginTop: "0.4rem" }}>
-              Premium managed service, starting simple
-            </h2>
+            <h2 className="section-title section-title-compact">Premium managed service, starting simple</h2>
             <span className="price">$3,000/mo</span>
-            <p className="copy" style={{ marginTop: "1rem" }}>
-              Pricing scales with scope, especially based on the number of channels
-              monitored and how much refinement is required around positioning and voice.
+            <p className="copy">
+              Pricing scales with scope, especially with the number of channels
+              monitored and the amount of refinement needed around voice and targeting.
             </p>
-          </div>
-          <div className="surface-card">
-            <p className="eyebrow">What You Get</p>
-            <h3 style={{ marginTop: "0.5rem" }}>Managed setup, targeting, and refinement</h3>
-            <ul>
+
+            <ul className="pricing-list">
               {pricingPoints.map((point) => (
-                <li key={point}>{point}</li>
+                <li key={point}>
+                  <BadgeDollarSign className="h-4 w-4" />
+                  <span>{point}</span>
+                </li>
               ))}
             </ul>
-          </div>
+          </article>
+
+          <article id="fit" className="surface-card fit-card">
+            <p className="eyebrow">Best Fit</p>
+            <h2 className="section-title section-title-compact">Built for businesses that value trust and precision</h2>
+            <p className="copy">
+              Hesperus is a strong fit when the sale is meaningful, the audience is
+              already on YouTube, and the brand cannot afford sloppy public outreach.
+            </p>
+
+            <ul className="check-list">
+              {bestFit.map((point) => (
+                <li key={point}>
+                  <CheckCircle2 className="h-4 w-4" />
+                  <span>{point}</span>
+                </li>
+              ))}
+            </ul>
+          </article>
         </div>
       </section>
 
-      <section id="fit" className="section">
+      <section className="section">
         <div className="page-wrap final-panel">
           <p className="eyebrow">Final CTA</p>
-          <h2 className="section-title" style={{ maxWidth: "15ch", marginTop: "0.4rem" }}>
-            If this fits your growth strategy, the next step is a fit conversation.
+          <h2 className="section-title final-title">
+            We do not help brands fake engagement. We help them participate in the right conversations with the right message.
           </h2>
-          <p className="copy" style={{ maxWidth: "44rem", marginTop: "1rem" }}>
-            We will look at whether your niche is a strong match, which channels
-            matter most, how your brand should sound in public, and whether to start
-            with a pilot or a full engagement.
+          <p className="copy final-copy">
+            If this aligns with your growth strategy, the next step is a fit
+            conversation to determine whether your niche is a strong match, which
+            channels matter most, and how your brand should sound in public.
           </p>
+
           <div className="cta-row">
             <a className="cta-primary" href={mailtoHref}>
               Get Hesperus <Send className="ml-2 h-4 w-4" />
@@ -312,23 +447,6 @@ export function HesperusLanding() {
             <a className="cta-secondary" href="mailto:hello@gethesperus.com">
               See If This Fits Your Business
             </a>
-          </div>
-          <div className="grid-3" style={{ marginTop: "1.5rem" }}>
-            <div className="surface-card">
-              <CheckCircle2 className="h-8 w-8" style={{ color: "rgb(var(--accent))" }} />
-              <h3 style={{ marginTop: "1rem" }}>High-quality inbound leads</h3>
-              <p>Built for businesses that care more about lead quality than vanity metrics.</p>
-            </div>
-            <div className="surface-card">
-              <MessageSquareText className="h-8 w-8" style={{ color: "rgb(var(--accent))" }} />
-              <h3 style={{ marginTop: "1rem" }}>Public brand alignment</h3>
-              <p>Your visible comments should sound like your business, not a content machine.</p>
-            </div>
-            <div className="surface-card">
-              <Users className="h-8 w-8" style={{ color: "rgb(var(--accent))" }} />
-              <h3 style={{ marginTop: "1rem" }}>Delegated execution</h3>
-              <p>Someone on your team can keep this moving without becoming a full-time operator.</p>
-            </div>
           </div>
         </div>
       </section>

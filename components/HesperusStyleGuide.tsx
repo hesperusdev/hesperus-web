@@ -369,7 +369,7 @@ export function HesperusStyleGuide() {
               <div className="cta-banner-visual">
                 <div className="mini-creature">
                   <Image
-                    src="/brand/hesperus-yuruchara.webp"
+                    src="/hesperus-yuruchara.webp"
                     alt="Hesperus mascot"
                     width={640}
                     height={960}

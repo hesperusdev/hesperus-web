@@ -72,7 +72,7 @@ export function HesperusStyleGuide() {
         </header>
 
         <div className="shell style-guide-hero">
-          <p className="section-label">Temporary Internal Review Page</p>
+          <p className="style-guide-kicker">Temporary Internal Review Page</p>
           <h1 className="hero-title style-guide-title">
             <span className="hero-title-main">Hesperus Style Guide</span>
             <span className="hero-title-accent">Current Site Styles</span>
@@ -86,10 +86,10 @@ export function HesperusStyleGuide() {
 
       <section className="style-guide-content-section light-section">
         <div className="shell style-guide-stack">
-          <div className="style-guide-section">
+          <section className="style-guide-section">
             <div className="style-guide-heading">
-              <p className="section-label dark">Colors</p>
-              <h2>Core tokens currently driving the site.</h2>
+              <h2 className="section-label">Colors</h2>
+              <p className="style-guide-section-title">Core tokens currently driving the site.</p>
             </div>
             <div className="token-grid">
               {colorTokens.map((token) => (
@@ -103,12 +103,12 @@ export function HesperusStyleGuide() {
                 </article>
               ))}
             </div>
-          </div>
+          </section>
 
-          <div className="style-guide-section">
+          <section className="style-guide-section">
             <div className="style-guide-heading">
-              <p className="section-label dark">Containers</p>
-              <h2>Current width system for page layout and content blocks.</h2>
+              <h2 className="section-label">Containers</h2>
+              <p className="style-guide-section-title">Current width system for page layout and content blocks.</p>
             </div>
             <div className="container-demo-card">
               <div className="container-demo-frame">
@@ -139,12 +139,12 @@ export function HesperusStyleGuide() {
                 </div>
               </div>
             </div>
-          </div>
+          </section>
 
-          <div className="style-guide-section">
+          <section className="style-guide-section">
             <div className="style-guide-heading">
-              <p className="section-label dark">Typography</p>
-              <h2>Headline, section, body, and small label treatments.</h2>
+              <h2 className="section-label">Typography</h2>
+              <p className="style-guide-section-title">Headline, section, body, and small label treatments.</p>
             </div>
             <div className="dual-card-grid">
               <article className="content-card">
@@ -166,12 +166,31 @@ export function HesperusStyleGuide() {
                 </p>
               </article>
             </div>
-          </div>
+          </section>
 
-          <div className="style-guide-section">
+          <section className="style-guide-section">
             <div className="style-guide-heading">
-              <p className="section-label dark">Spacing</p>
-              <h2>Simple spacing rules for sections and stacked containers.</h2>
+              <h2 className="section-label">Section Label</h2>
+              <p className="style-guide-section-title">The standard label treatment used to introduce sections across the site.</p>
+            </div>
+            <article className="content-card">
+              <div className="style-button-row">
+                <p className="section-label">The Setup</p>
+                <p className="section-label">The Funnel</p>
+                <p className="section-label dark">The Features</p>
+              </div>
+              <p className="style-guide-footnote">
+                `section-label` is the standard section-label pattern across the site.
+                Use short, title-cased language. Use the pill version on dark sections and
+                the flat `dark` variant on lighter card/content surfaces.
+              </p>
+            </article>
+          </section>
+
+          <section className="style-guide-section">
+            <div className="style-guide-heading">
+              <h2 className="section-label">Spacing</h2>
+              <p className="style-guide-section-title">Simple spacing rules for sections and stacked containers.</p>
             </div>
             <div className="spacing-guide">
               <article className="spacing-card">
@@ -210,12 +229,12 @@ export function HesperusStyleGuide() {
                 </div>
               </article>
             </div>
-          </div>
+          </section>
 
-          <div className="style-guide-section">
+          <section className="style-guide-section">
             <div className="style-guide-heading">
-              <p className="section-label dark">Buttons</p>
-              <h2>Primary and secondary action styles used in the hero and CTA sections.</h2>
+              <h2 className="section-label">Buttons</h2>
+              <p className="style-guide-section-title">Primary and secondary action styles used in the hero and CTA sections.</p>
             </div>
             <div className="style-button-row">
               <a className="primary-button large" href={mailtoHref}>
@@ -226,12 +245,12 @@ export function HesperusStyleGuide() {
                 <span>See If This Fits Your Business</span>
               </a>
             </div>
-          </div>
+          </section>
 
-          <div className="style-guide-section" id="components">
+          <section className="style-guide-section" id="components">
             <div className="style-guide-heading">
-              <p className="section-label dark">Video</p>
-              <h2>Current marketing-site video treatment.</h2>
+              <h2 className="section-label">Video</h2>
+              <p className="style-guide-section-title">Current marketing-site video treatment.</p>
             </div>
             <div className="style-guide-video">
               <CloudflareVideoPlayer
@@ -240,12 +259,12 @@ export function HesperusStyleGuide() {
               />
             </div>
             <p className="style-guide-footnote">{`Landing-page video width: medium container (${mediumContainerLabel})`}</p>
-          </div>
+          </section>
 
-          <div className="style-guide-section">
+          <section className="style-guide-section">
             <div className="style-guide-heading">
-              <p className="section-label dark">Components</p>
-              <h2>Examples of the cards, chips, panels, and CTA block styles in use.</h2>
+              <h2 className="section-label">Components</h2>
+              <p className="style-guide-section-title">Examples of the cards, chips, panels, and CTA block styles in use.</p>
             </div>
             <div className="style-component-grid">
               <article className="funnel-stage style-guide-funnel-stage">
@@ -330,12 +349,12 @@ export function HesperusStyleGuide() {
                 </div>
               </article>
             </div>
-          </div>
+          </section>
 
-          <div className="style-guide-section">
+          <section className="style-guide-section">
             <div className="style-guide-heading">
-              <p className="section-label dark">Graphics Brief</p>
-              <h2>Use this section as the creative handoff for new on-brand graphics.</h2>
+              <h2 className="section-label">Graphics Brief</h2>
+              <p className="style-guide-section-title">Use this section as the creative handoff for new on-brand graphics.</p>
             </div>
             <div className="dual-card-grid">
               <article className="content-card">
@@ -362,7 +381,7 @@ export function HesperusStyleGuide() {
                 </ul>
               </article>
             </div>
-          </div>
+          </section>
 
           <section className="style-guide-cta-section cta-section style-guide-cta">
             <div className="cta-banner">

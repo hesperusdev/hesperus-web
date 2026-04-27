@@ -112,23 +112,23 @@ const dashboardRows = [
 const benefits = [
   {
     icon: Compass,
-    title: "Source Channel Readiness",
-    body: "I make sure your YouTube channel can actually convert the attention it receives, including positioning, channel setup, and evergreen content.",
+    title: "Source Channel Foundation",
+    body: "I make sure your YouTube channel is built to convert attention into trust, with the right positioning, channel setup, and evergreen content in place before launch.",
   },
   {
     icon: Zap,
-    title: "Target Channel Strategy",
-    body: "I help determine which channels are worth monitoring and where your brand can show up credibly instead of randomly posting into noise.",
+    title: "Target Channel Selection",
+    body: "I identify the channels and conversations worth entering so your brand shows up where buyer attention already exists, instead of posting blindly into noise.",
   },
   {
     icon: BellRing,
-    title: "Managed Comment Execution",
-    body: "Hesperus stays internal. I use it behind the scenes to monitor new uploads, draft the comments, and manage posting from your source channel.",
+    title: "Comment Execution",
+    body: "Hesperus stays internal. I use it behind the scenes to monitor new uploads, draft the comments, and manage the posting flow from your source channel.",
   },
   {
     icon: MessageSquareQuote,
-    title: "Conversion And Reporting",
-    body: "I help connect the traffic path from YouTube to your site, landing page, calendar, or sale flow, with analytics and reporting in place.",
+    title: "Attribution And Conversion",
+    body: "I connect the traffic path from YouTube to your website, landing page, calendar, or sale flow, with tracking and reporting set up so the outcome is measurable.",
   },
 ];
 
@@ -191,7 +191,6 @@ export function HesperusLanding() {
               <a href="#how-it-works">How It Works</a>
               <a href="#pricing">Pricing</a>
               <a href="#about">About</a>
-              <a href="/style-guide">Style Guide</a>
             </nav>
 
             <div className="site-actions">
@@ -223,7 +222,7 @@ export function HesperusLanding() {
             <a className="primary-button large" href={mailtoHref}>
               Book a Fit Call <ArrowRight className="h-4 w-4" />
             </a>
-            <a className="ghost-link" href="#setup">
+            <a className="ghost-link" href="#funnel">
               <PlayCircle className="h-5 w-5" />
               <span>See How It Works</span>
             </a>
@@ -232,35 +231,12 @@ export function HesperusLanding() {
 
       </section>
 
-      <section id="setup" className="setup-section content-section">
-        <div className="shell setup-section-shell container-large section-shell">
-          <div className="setup-section-intro">
-            <p className="section-label">The Setup</p>
-            <h2>Before anything goes live, I set up the foundation that makes this work.</h2>
-            <p>
-              This is not just comment posting. The source channel, the target-channel
-              strategy, the landing path, and the tracking all need to be in place first.
-            </p>
-          </div>
-
-          <div className="setup-section-grid">
-            {setupPoints.map((point, index) => (
-              <article key={point.title} className="setup-step-card">
-                <div className="setup-step-number">{index + 1}</div>
-                <h3>{point.title}</h3>
-                <p>{point.body}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <section id="funnel" className="funnel-section">
         <div className="funnel-comparison-section section-shell">
-          <div className="funnel-comparison-intro container-large">
-            <p className="section-label">The Funnel</p>
-            <h2>This is the path from borrowed YouTube attention to a qualified lead.</h2>
-            <p>
+          <div className="funnel-comparison-intro section-intro container-medium">
+            <h2 className="section-label">The Funnel</h2>
+            <p className="section-intro-title">From borrowed YouTube attention to a qualified lead.</p>
+            <p className="section-intro-body">
               I use this funnel to turn large borrowed YouTube audiences into
               measurable client outcomes by moving traffic through the right
               channel, website, and conversion path.
@@ -316,12 +292,45 @@ export function HesperusLanding() {
         </div>
       </section>
 
-      <section id="features" className="features-section light-section">
-        <div className="shell feature-grid container-large section-shell">
-          <div className="feature-copy">
-            <p className="section-label dark">A Managed Outcome, Powered Internally By Hesperus</p>
-            <h2>You hire me for the lead outcome. I use Hesperus behind the scenes to make the system run.</h2>
+      <section id="setup" className="setup-section content-section">
+        <div className="shell setup-section-shell container-large section-shell">
+          <div className="setup-section-intro section-intro container-medium">
+            <h2 className="section-label">The Setup</h2>
+            <p className="section-intro-title">I set up the foundation that makes this work.</p>
+            <p className="section-intro-body">
+              This is not just comment posting. The source channel, the target-channel
+              strategy, the landing path, and the tracking all need to be in place first.
+            </p>
+          </div>
 
+          <div className="setup-section-grid">
+            {setupPoints.map((point, index) => (
+              <article key={point.title} className="setup-step-card">
+                <div className="setup-step-number">{index + 1}</div>
+                <h3>{point.title}</h3>
+                <p>{point.body}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="features" className="features-section light-section">
+        <div className="shell features-section-shell container-large section-shell">
+          <div className="features-section-intro section-intro container-medium">
+            <h2 className="section-label">The Features</h2>
+            <p className="section-intro-title">
+              I handle the entire process. You focus on closing.
+            </p>
+            <p className="section-intro-body">
+              You are not buying software. You are hiring me to operate the full
+              engine: channel readiness, target selection, comment execution,
+              and the conversion path that turns that visibility into pipeline.
+            </p>
+          </div>
+
+          <div className="feature-grid">
+            <div className="feature-copy">
             <div className="feature-list">
               {benefits.map((item) => (
                 <article key={item.title} className="feature-item">
@@ -335,50 +344,51 @@ export function HesperusLanding() {
                 </article>
               ))}
             </div>
-          </div>
-
-          <div className="opportunity-card">
-            <div className="opportunity-sidebar">
-              <div className="demo-brand dark">
-                <Star className="h-3.5 w-3.5" />
-                <span>Hesperus</span>
-              </div>
-              <div className="demo-nav-item active">Dashboard</div>
-              <div className="demo-nav-item">Opportunities</div>
-              <div className="demo-nav-item">Alerts</div>
-              <div className="demo-nav-item">History</div>
-              <div className="demo-nav-item">Settings</div>
             </div>
 
-            <div className="opportunity-main">
-              <div className="demo-topbar light">
-                <div>
-                  <p className="demo-heading dark">Top Opportunities</p>
-                  <p className="demo-subheading dark">Managed internally after the source channel, target channels, and conversion path are in place</p>
+            <div className="opportunity-card">
+              <div className="opportunity-sidebar">
+                <div className="demo-brand dark">
+                  <Star className="h-3.5 w-3.5" />
+                  <span>Hesperus</span>
                 </div>
-                <div className="demo-filter light">This Week</div>
+                <div className="demo-nav-item active">Dashboard</div>
+                <div className="demo-nav-item">Opportunities</div>
+                <div className="demo-nav-item">Alerts</div>
+                <div className="demo-nav-item">History</div>
+                <div className="demo-nav-item">Settings</div>
               </div>
 
-              <div className="demo-table light">
-                {dashboardRows.map((row) => (
-                  <div key={row.title} className="demo-row light">
-                    <div className="demo-row-icon light">
-                      <PlayCircle className="h-4 w-4" />
-                    </div>
-                    <div className="demo-row-copy">
-                      <p className="demo-row-title dark">{row.title}</p>
-                      <div className="demo-tags light">
-                        {row.tags.map((tag) => (
-                          <span key={tag}>{tag}</span>
-                        ))}
+              <div className="opportunity-main">
+                <div className="demo-topbar light">
+                  <div>
+                    <p className="demo-heading dark">Active Opportunities</p>
+                    <p className="demo-subheading dark">This is the internal operating layer I use once the source channel, target channels, and conversion path are ready</p>
+                  </div>
+                  <div className="demo-filter light">This Week</div>
+                </div>
+
+                <div className="demo-table light">
+                  {dashboardRows.map((row) => (
+                    <div key={row.title} className="demo-row light">
+                      <div className="demo-row-icon light">
+                        <PlayCircle className="h-4 w-4" />
+                      </div>
+                      <div className="demo-row-copy">
+                        <p className="demo-row-title dark">{row.title}</p>
+                        <div className="demo-tags light">
+                          {row.tags.map((tag) => (
+                            <span key={tag}>{tag}</span>
+                          ))}
+                        </div>
+                      </div>
+                      <div className="demo-score light">
+                        <strong>{row.score}</strong>
+                        <span>/100</span>
                       </div>
                     </div>
-                    <div className="demo-score light">
-                      <strong>{row.score}</strong>
-                      <span>/100</span>
-                    </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
             </div>
           </div>
@@ -473,29 +483,12 @@ export function HesperusLanding() {
         </div>
       </section>
 
-      <section className="process-section">
-        <div className="shell process-section-shell section-shell">
-          <div className="funnel-comparison-footer">
-            <div className="funnel-comparison-footer-claim">
-              <p>I handle the entire process.</p>
-              <strong>You focus on closing.</strong>
-            </div>
-            <div className="funnel-comparison-footer-steps">
-              <span>Research</span>
-              <span>Comment</span>
-              <span>Track</span>
-              <span>Optimize</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <footer className="footer-section site-footer shell">
         <div className="footer-brand">
           <span className="brand-mark">
             <Star className="h-4 w-4" />
           </span>
-          <span className="brand-wordmark dark">Hesperus</span>
+          <span className="brand-wordmark">Hesperus</span>
         </div>
         <p>Offered through Southwest Digital Marketing.</p>
         <a href="mailto:hello@gethesperus.com">hello@gethesperus.com</a>

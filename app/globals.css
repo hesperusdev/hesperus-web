@@ -29,10 +29,31 @@ html {
 }
 
 body {
+  position: relative;
+  min-height: 100vh;
   margin: 0;
-  background: rgb(var(--surface));
-  color: rgb(var(--surface-text));
+  background:
+    radial-gradient(circle at 16% 18%, rgba(255, 142, 72, 0.12), transparent 18%),
+    radial-gradient(circle at 78% 24%, rgba(212, 97, 255, 0.16), transparent 22%),
+    radial-gradient(circle at 70% 74%, rgba(255, 105, 76, 0.08), transparent 18%),
+    linear-gradient(180deg, rgb(var(--bg-dark)) 0%, rgb(var(--bg-dark-2)) 54%, rgb(14 11 37) 100%);
+  color: rgb(var(--hero-text));
   font-family: var(--font-plus-jakarta-sans), "Segoe UI", sans-serif;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    radial-gradient(circle, rgba(255, 166, 84, 0.55) 0 1.1px, transparent 1.4px),
+    radial-gradient(circle, rgba(255, 255, 255, 0.22) 0 1px, transparent 1.3px),
+    radial-gradient(circle, rgba(255, 108, 78, 0.22) 0 1px, transparent 1.3px);
+  background-size: 220px 220px, 260px 260px, 320px 320px;
+  background-position: 0 0, 90px 140px, 30px 70px;
+  opacity: 0.35;
 }
 
 a {
@@ -52,26 +73,6 @@ ol {
 .hesperus-page {
   min-height: 100vh;
   position: relative;
-  background:
-    radial-gradient(circle at 16% 18%, rgba(255, 142, 72, 0.12), transparent 18%),
-    radial-gradient(circle at 78% 24%, rgba(212, 97, 255, 0.16), transparent 22%),
-    radial-gradient(circle at 70% 74%, rgba(255, 105, 76, 0.08), transparent 18%),
-    linear-gradient(180deg, rgb(var(--bg-dark)) 0%, rgb(var(--bg-dark-2)) 54%, rgb(14 11 37) 100%);
-}
-
-.hesperus-page::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-  background-image:
-    radial-gradient(circle, rgba(255, 166, 84, 0.55) 0 1.1px, transparent 1.4px),
-    radial-gradient(circle, rgba(255, 255, 255, 0.22) 0 1px, transparent 1.3px),
-    radial-gradient(circle, rgba(255, 108, 78, 0.22) 0 1px, transparent 1.3px);
-  background-size: 220px 220px, 260px 260px, 320px 320px;
-  background-position: 0 0, 90px 140px, 30px 70px;
-  opacity: 0.35;
 }
 
 .hesperus-page > * {
@@ -94,8 +95,12 @@ ol {
 
 .style-guide-page {
   min-height: 100vh;
-  background: rgb(var(--surface));
-  color: rgb(var(--surface-text));
+  color: rgb(var(--hero-text));
+}
+
+.style-guide-page > * {
+  position: relative;
+  z-index: 1;
 }
 
 .style-guide-shell {
@@ -147,6 +152,14 @@ ol {
   line-height: 1.6;
 }
 
+.style-guide-kicker {
+  color: rgb(var(--accent-2));
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
 .style-guide-stack {
   display: grid;
   gap: var(--space-section-stack);
@@ -162,7 +175,7 @@ ol {
   gap: 0.75rem;
 }
 
-.style-guide-heading h2 {
+.style-guide-section-title {
   font-size: clamp(2rem, 4vw, 3rem);
   line-height: 1.04;
   letter-spacing: -0.04em;
@@ -397,6 +410,7 @@ ol {
   border-radius: 1rem;
   border: 1px solid rgb(var(--surface-border));
   background: rgb(var(--surface-card));
+  color: rgb(var(--surface-text));
   box-shadow: 0 12px 28px rgba(70, 53, 98, 0.06);
 }
 
@@ -532,6 +546,12 @@ ol {
   gap: var(--space-container-gap);
 }
 
+.features-section-shell {
+  display: grid;
+  gap: var(--space-container-gap);
+}
+
+.section-intro,
 .setup-section-intro {
   display: grid;
   gap: 0.85rem;
@@ -539,15 +559,19 @@ ol {
   text-align: center;
 }
 
-.setup-section-intro h2 {
-  max-width: 50rem;
+.section-intro-title {
+  width: 100%;
+  max-width: var(--container-medium);
   font-size: clamp(2rem, 4vw, 3.1rem);
   line-height: 1.05;
-  letter-spacing: -0.04em;
+  letter-spacing: 0;
+  font-weight: 800;
+  text-wrap: balance;
 }
 
-.setup-section-intro p:last-child {
-  max-width: 54rem;
+.section-intro-body {
+  width: 100%;
+  max-width: 100%;
   color: rgb(var(--hero-muted));
   line-height: 1.7;
 }
@@ -726,7 +750,9 @@ ol {
   color: rgb(var(--accent-2));
   font-size: 0.78rem;
   font-weight: 700;
+  line-height: 1;
   letter-spacing: 0.08em;
+  white-space: nowrap;
   text-transform: uppercase;
 }
 
@@ -796,17 +822,11 @@ ol {
   text-align: center;
 }
 
-.funnel-comparison-intro h2 {
-  max-width: 48rem;
+.funnel-comparison-intro .section-intro-title {
   font-size: clamp(1.9rem, 3.5vw, 3rem);
   line-height: 1.06;
-  letter-spacing: -0.04em;
-}
-
-.funnel-comparison-intro p:last-child {
-  max-width: 56rem;
-  color: rgb(var(--hero-muted));
-  line-height: 1.7;
+  letter-spacing: 0;
+  font-weight: 800;
 }
 
 .funnel-comparison-diagram {
@@ -1098,7 +1118,7 @@ ol {
   max-width: 100%;
 }
 
-.feature-copy h2,
+.feature-copy h2:not(.section-label),
 .content-card h2,
 .cta-banner-copy h2 {
   font-size: clamp(2rem, 4vw, 3.35rem);
@@ -1390,11 +1410,22 @@ ol {
   border-radius: 1.5rem;
   border: 1px solid rgb(var(--surface-border));
   background: rgb(var(--surface-card));
+  color: rgb(var(--surface-text));
   box-shadow: 0 18px 40px rgba(70, 53, 98, 0.08);
 }
 
 .content-card.accent {
   background: linear-gradient(180deg, rgb(255 251 247) 0%, rgb(250 245 255) 100%);
+}
+
+.spacing-card,
+.opportunity-card,
+.demo-main,
+.opportunity-main,
+.demo-row,
+.demo-filter,
+.demo-filter.light {
+  color: rgb(var(--surface-text));
 }
 
 .execution-list,
@@ -1522,11 +1553,16 @@ ol {
   justify-content: space-between;
   gap: 1rem;
   padding: 1.5rem 0 3rem;
+  border-top: 1px solid rgba(173, 158, 233, 0.12);
 }
 
 .site-footer p,
 .site-footer a {
-  color: rgb(var(--surface-muted));
+  color: rgb(var(--hero-muted));
+}
+
+.site-footer a:hover {
+  color: rgb(var(--hero-text));
 }
 
 @media (min-width: 960px) {

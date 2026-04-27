@@ -1,13 +1,16 @@
-import Image from "next/image";
+﻿import Image from "next/image";
 import { CloudflareVideoPlayer } from "./CloudflareVideoPlayer";
 import {
   ArrowRight,
   ArrowBigDown,
   BellRing,
+  CalendarDays,
   CheckCircle2,
   Compass,
+  DollarSign,
   Eye,
   MessageSquareQuote,
+  PhoneCall,
   PlayCircle,
   Radar,
   Send,
@@ -16,6 +19,7 @@ import {
   Star,
   Telescope,
   Users,
+  X,
   Zap,
 } from "lucide-react";
 
@@ -86,49 +90,26 @@ const funnelComparisonStages = [
   },
 ];
 
-const dashboardRows = [
-  {
-    title: "HELOC strategy video with active investor discussion",
-    tags: ["High Intent", "Telegram Ready"],
-    score: "96",
-  },
-  {
-    title: "Multifamily market reset clip with high comment velocity",
-    tags: ["Fast Moving", "Brand Fit"],
-    score: "92",
-  },
-  {
-    title: "Tax strategy explainer with buyer-language in comments",
-    tags: ["Lead Signal", "Opportunity"],
-    score: "87",
-  },
-  {
-    title: "Creator breakdown triggering audience trust questions",
-    tags: ["Strong Context", "Review"],
-    score: "75",
-  },
-];
-
 const benefits = [
   {
     icon: Compass,
-    title: "Source Channel Foundation",
-    body: "I make sure your YouTube channel is built to convert attention into trust, with the right positioning, channel setup, and evergreen content in place before launch.",
+    title: "Where You're Showing Up",
+    body: "See which channels we're active on, how often we're posting, and where your visibility is coming from.",
   },
   {
     icon: Zap,
-    title: "Target Channel Selection",
-    body: "I identify the channels and conversations worth entering so your brand shows up where buyer attention already exists, instead of posting blindly into noise.",
+    title: "How Traffic Is Moving",
+    body: "Track how attention turns into real traffic — and which channels are actually driving it.",
   },
   {
     icon: BellRing,
-    title: "Comment Execution",
-    body: "Hesperus stays internal. I use it behind the scenes to monitor new uploads, draft the comments, and manage the posting flow from your source channel.",
+    title: "Leads Being Generated",
+    body: "See how many leads are coming in and where they're coming from — tied back to real activity.",
   },
   {
     icon: MessageSquareQuote,
-    title: "Attribution And Conversion",
-    body: "I connect the traffic path from YouTube to your website, landing page, calendar, or sale flow, with tracking and reporting set up so the outcome is measurable.",
+    title: "What's Working",
+    body: "Identify which channels and conversations are producing results so the system improves over time.",
   },
 ];
 
@@ -143,23 +124,37 @@ const executionPoints = [
 const setupPoints = [
   {
     title: "Discovery And Fit",
-    body: "I start with a fit conversation to understand the business, the niche, the offer, and whether this channel-first lead flow is actually a match.",
+    body: "We start with a fit conversation to understand your business, your offer, and your market. If this channel-first approach does not make sense for you, I will tell you before anything starts.",
+    bullets: [
+      "Make sure this will actually produce leads for your business",
+    ],
   },
   {
     title: "Source Channel Foundation",
-    body: "Before launch, I make sure the source channel is credible: positioning, channel art, descriptions, and at least five evergreen videos that can convert curiosity into trust.",
+    body: "Before launch, I make sure your YouTube channel is credible and positioned correctly so that when someone clicks, they do not bounce — they stay, trust, and move forward.",
+    bullets: [
+      "Clear positioning and messaging",
+      "Channel setup that builds trust",
+      "At least 5 evergreen videos that answer real buyer questions",
+    ],
   },
   {
     title: "Targeting, Tracking, And Launch Prep",
-    body: "Then I select the target channels, align the click path to the website or landing page, and make sure analytics and conversion tracking are in place before posting starts.",
+    body: "Before posting begins, I build the path from attention to click to lead. Nothing goes live until the full path is in place.",
+    bullets: [
+      "Identify the channels and conversations worth entering",
+      "Align the click path to your website or landing page",
+      "Set up tracking so every lead can be tied back to the source",
+    ],
   },
 ];
 
 const fitPoints = [
-  "Businesses willing to build the full chain, not just buy comments in isolation",
-  "Clients who can support a real source channel with strong setup and evergreen content",
-  "Brands that want tracked lead flow instead of vague visibility metrics",
-  "Founders who want the outcome handled for them instead of operating the system themselves",
+  "Businesses doing $500K+ in annual revenue",
+  "Offers where one new client can justify the investment",
+  "Service businesses with high-ticket sales or recurring revenue",
+  "Companies willing to build a credible YouTube presence (I handle the setup)",
+  "Founders who want qualified inbound leads, not just visibility",
 ];
 
 const qualityPoints = [
@@ -172,31 +167,48 @@ const qualityPoints = [
 const advantagePoints = [
   {
     icon: Eye,
-    title: "You Borrow Existing Attention",
-    body: "Instead of paying to interrupt people cold, I place your brand where your buyers are already watching, researching, and paying attention.",
+    title: "You Tap Into Massive Existing Demand",
+    body: (
+      <>
+        <strong>YouTube is where your buyers go to figure out what to do.</strong>{" "}
+        Your buyers are already searching for answers, strategies, and
+        solutions in your niche. By showing up on the right channels, you're
+        not creating demand — you're stepping directly into it.
+      </>
+    ),
   },
   {
     icon: Radar,
-    title: "You Enter High-Intent Moments",
-    body: "A new video on the right channel creates a fresh window where curiosity and buying intent are already active in the comments.",
+    title: "Authority Transfers By Proximity",
+    body: "Large creators — and even respected niche channels — carry influence. When your brand consistently shows up in their conversations, that trust transfers. You're no longer unknown — you're part of the space.",
   },
   {
     icon: Telescope,
-    title: "You Gain Trust By Proximity",
-    body: "Your brand shows up next to creators your market already trusts, which makes the click to your channel far more qualified than generic traffic.",
+    title: "Video Builds Trust Instantly",
+    body: "Nothing builds trust faster than video. When someone clicks through, they don't land on a static page — they land on your channel, your content, your voice. They can immediately see how you think, how you explain, and whether they trust you.",
   },
   {
     icon: Send,
-    title: "You Can Track It End To End",
-    body: "The path from comment to channel to site to booked call can be measured, improved, and tied back to qualified leads instead of vanity metrics.",
+    title: "You Show Up When Decisions Are Being Made",
+    body: "People go to YouTube to learn, evaluate, and decide. Some try to DIY. Some look to hire the creator. But when that doesn't work, they ask: \"Who do I actually trust to do this?\" If your brand has been consistently showing up in that conversation, you're already in the running.",
+  },
+  {
+    icon: BellRing,
+    title: "Consistent Visibility → Consistent Deal Flow",
+    body: "As new videos are published and conversations continue, your brand keeps showing up. That creates steady visibility, repeated exposure, and ongoing inbound leads. Not a one-time campaign — a continuous flow.",
+  },
+  {
+    icon: Compass,
+    title: "Higher-Quality Leads",
+    body: "These aren't cold clicks. They're people who were already researching the problem, already considering solutions, and already understand the value. That's why the leads are more qualified — and easier to close.",
   },
 ];
 
 const notFitPoints = [
-  "Businesses looking for instant scale without building the channel and conversion path first",
-  "Teams that want bulk AI comments or hands-off spam tactics",
-  "Offers that do not benefit from trust, authority, or thoughtful public positioning",
-  "Clients unwilling to support tracking, landing pages, or a credible sales follow-up process",
+  "Early-stage businesses still figuring out their offer",
+  "Offers where a new client does not justify the investment",
+  "Anyone looking for shortcuts, bulk comments, or spam tactics",
+  "Businesses expecting results without participating in setup and follow-through",
 ];
 
 const clientTypePoints = [
@@ -205,8 +217,146 @@ const clientTypePoints = [
   "I do not want a bloated roster. I want a small book of businesses where I can actually move the needle.",
 ];
 
+const pricingPlans = [
+  {
+    name: "Starter",
+    targetChannels: "3 Target Channels",
+    subtitle: "Initial presence in your niche",
+    description:
+      "Build visibility and start generating inbound interest from the right conversations.",
+    price: "$2,000",
+    cadence: "/ month",
+    includedLabel: "Includes:",
+    features: [
+      "Full setup (channel, targeting, conversion path)",
+      "Placement across 3 selected target channels",
+      "Up to 30 placements per month",
+      "Ongoing comment writing and posting",
+      "Landing page alignment + tracking",
+      "Weekly performance visibility",
+    ],
+    bestFor: "Validating lead flow in your market",
+  },
+  {
+    name: "Growth",
+    targetChannels: "5 Target Channels",
+    subtitle: "Consistent visibility and inbound traffic",
+    description:
+      "Expand your reach and generate steady, qualified inbound leads.",
+    supportingLine:
+      "This is where the system starts to produce consistent lead flow.",
+    price: "$3,500",
+    cadence: "/ month",
+    includedLabel: "Everything in Starter, plus:",
+    features: [
+      "Placement across 5 target channels",
+      "Up to 60 placements per month",
+      "Broader coverage across your niche",
+      "More consistent traffic and lead flow",
+      "Increased optimization based on performance",
+    ],
+    bestFor: "Businesses ready for consistent deal flow",
+    featured: true,
+  },
+  {
+    name: "Scale",
+    targetChannels: "10 Target Channels",
+    subtitle: "High-frequency presence across your niche",
+    description:
+      "Maximize visibility and build a dominant presence in key conversations.",
+    price: "$5,000",
+    cadence: "/ month",
+    includedLabel: "Everything in Growth, plus:",
+    features: [
+      "Placement across 10 target channels",
+      "Up to 120 placements per month",
+      "Highest volume of traffic and leads",
+      "Priority optimization and focus",
+    ],
+    bestFor:
+      "Businesses looking to fully leverage YouTube as a lead channel",
+  },
+];
+
+const featureReliefPoints = [
+  {
+    title: "Find Target Channels",
+    body: "I identify the right channels and conversations so you are not guessing where to show up.",
+  },
+  {
+    title: "Write Or Manage Comments",
+    body: "I handle the actual comment strategy and execution so you do not have to manage the day-to-day work.",
+  },
+  {
+    title: "Track Traffic Or Performance",
+    body: "I connect the traffic path and reporting so you can see what attention is turning into real activity.",
+  },
+  {
+    title: "Figure Out What's Working",
+    body: "I surface the signals that matter so you know where the system is producing results over time.",
+  },
+];
+
+const resultsStoryPoints = [
+  {
+    icon: MessageSquareQuote,
+    text: "Consistent presence in high-intent conversations",
+  },
+  {
+    icon: Eye,
+    text: "Built familiarity before the buyer reached out",
+  },
+  {
+    icon: Users,
+    text: "Became the obvious next option when they were ready to act",
+  },
+];
+
+const resultsMetricCards = [
+  {
+    icon: MessageSquareQuote,
+    label: "Source",
+    value: "YouTube Comments",
+  },
+  {
+    icon: CalendarDays,
+    label: "Time To Close",
+    value: "~1 Week",
+  },
+  {
+    icon: PhoneCall,
+    label: "Lead Type",
+    value: "Inbound Call",
+  },
+  {
+    icon: DollarSign,
+    label: "Deal Context",
+    value: "High-Value Client",
+    detail: "Boat brokerage, $100K+ deals",
+  },
+];
+
 const mailtoHref =
   "mailto:hello@gethesperus.com?subject=Hesperus%20Fit%20Call&body=I%20want%20to%20talk%20about%20using%20Hesperus%20as%20a%20managed%20lead-generation%20service%20for%20my%20business.";
+
+function SectionCta({
+  label = "Book a Fit Call",
+  caption,
+}: {
+  label?: string;
+  caption?: string;
+}) {
+  return (
+    <div className="shell section-cta-row-shell">
+      <div className="section-cta-row container-small">
+        <a className="primary-button large" href={mailtoHref}>
+          {label} <ArrowRight className="h-4 w-4" />
+        </a>
+        {caption ? <p className="section-cta-caption">{caption}</p> : null}
+      </div>
+    </div>
+  );
+}
 
 export function HesperusLanding() {
   return (
@@ -223,16 +373,12 @@ export function HesperusLanding() {
             </a>
 
             <nav className="site-nav">
+              <a href="#funnel">YouTube Leads Funnel</a>
+              <a href="#channel-wins">Why YouTube?</a>
               <a href="#features">Features</a>
-              <a href="#how-it-works">How It Works</a>
-              <a href="#pricing">Pricing</a>
-              <a href="#about">About</a>
             </nav>
 
             <div className="site-actions">
-              <a className="login-link" href={mailtoHref}>
-                Email Me
-              </a>
               <a className="primary-button" href={mailtoHref}>
                 Book a Fit Call
               </a>
@@ -247,13 +393,6 @@ export function HesperusLanding() {
             </h1>
           </div>
 
-          <div className="hero-media container-medium">
-            <CloudflareVideoPlayer
-              className="cloudflare-player-shell hero-player-shell"
-              iframeClassName="cloudflare-player-iframe hero-player-iframe"
-            />
-          </div>
-
           <div className="hero-cta-row container-small">
             <a className="primary-button large" href={mailtoHref}>
               Book a Fit Call <ArrowRight className="h-4 w-4" />
@@ -263,6 +402,37 @@ export function HesperusLanding() {
               <span>See How It Works</span>
             </a>
           </div>
+
+          <div className="hero-media container-medium">
+            <CloudflareVideoPlayer
+              className="cloudflare-player-shell hero-player-shell"
+              iframeClassName="cloudflare-player-iframe hero-player-iframe"
+            />
+            <aside className="hero-callout-card">
+              <blockquote className="hero-callout-quote">
+                <span className="hero-callout-quote-mark" aria-hidden="true">
+                  &ldquo;
+                </span>
+                You don&apos;t need more content. You need to show up where your
+                buyers are already paying attention &mdash; and turn that attention
+                into pipeline.
+              </blockquote>
+              <div className="hero-callout-attribution">
+                <Image
+                  src="/macdonald-thomas-headshot.webp"
+                  alt="Thomas Macdonald"
+                  width={80}
+                  height={80}
+                  className="hero-callout-headshot"
+                />
+                <div className="hero-callout-credit">
+                  <strong>Thomas</strong>
+                  <span>Founder, Hesperus</span>
+                </div>
+              </div>
+            </aside>
+          </div>
+
         </div>
 
       </section>
@@ -270,7 +440,7 @@ export function HesperusLanding() {
       <section id="funnel" className="funnel-section">
         <div className="funnel-comparison-section section-shell">
           <div className="funnel-comparison-intro section-intro container-medium">
-            <h2 className="section-label">The Funnel</h2>
+            <h2 className="section-label">YouTube Leads Funnel</h2>
             <p className="section-intro-title">From borrowed YouTube attention to a qualified lead.</p>
             <p className="section-intro-body">
               I use this funnel to turn large borrowed YouTube audiences into
@@ -326,12 +496,118 @@ export function HesperusLanding() {
             ))}
           </div>
         </div>
+        <SectionCta
+          label="Get A Lead Flow Plan For Your Business"
+          caption="See how this would work for your market, offer, and traffic path"
+        />
+      </section>
+
+      <section id="channel-wins" className="channel-advantage-section content-section">
+        <div className="shell channel-advantage-shell container-large section-shell">
+          <div className="channel-advantage-intro section-intro container-medium">
+            <h2 className="section-label">Why YouTube?</h2>
+            <p className="section-intro-title">
+              Because trust, authority, and buying intent are already there.
+            </p>
+            <p className="section-intro-body">
+              I place your brand inside conversations where your buyers are
+              already learning, already evaluating options, and already
+              deciding what to do next.
+            </p>
+          </div>
+
+          <div className="channel-advantage-grid">
+            {advantagePoints.map((point, index) => (
+              <article
+                key={point.title}
+                className={`advantage-card${index >= advantagePoints.length - 2 ? " advantage-card-green" : ""}`}
+              >
+                <h3 className="heading-3">{point.title}</h3>
+                <p>{point.body}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+        <SectionCta
+          label="See If This Will Work For Your Business"
+          caption="I'll look at your niche, your offer, and whether this approach can generate leads for you."
+        />
+      </section>
+
+      <section id="features" className="features-section light-section">
+        <div className="shell features-section-shell container-large section-shell">
+          <div className="features-section-intro section-intro container-medium">
+            <h2 className="section-label">Features</h2>
+            <p className="section-intro-title">
+              I handle the entire process. You focus on closing.
+            </p>
+            <p className="section-intro-body">
+              You're not buying software.
+              <br />
+              You&apos;re hiring me to run the full path from YouTube attention
+              to inbound leads — and show you exactly what&apos;s happening along
+              the way.
+            </p>
+          </div>
+
+          <div className="features-dashboard-shell container-large">
+            <Image
+              src="/hesperus-client-dashboard-lead-generation.png"
+              alt="Hesperus client dashboard showing lead generation reporting"
+              width={1600}
+              height={1100}
+              className="features-dashboard-image"
+            />
+          </div>
+
+            <div className="features-content-grid">
+              <div className="feature-copy">
+                <h3 className="heading-3 features-subheading">What You&apos;ll See</h3>
+                <div className="feature-list">
+                  {benefits.map((item) => (
+                  <article key={item.title} className="feature-item">
+                    <div className="feature-item-icon">
+                      <item.icon className="h-4 w-4" />
+                    </div>
+                    <div>
+                      <h3 className="heading-3">{item.title}</h3>
+                      <p>{item.body}</p>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </div>
+
+              <div className="feature-system-panel">
+                <div className="feature-system-note">
+                  <h3 className="heading-3">What You Don&apos;t Have To Do</h3>
+                  <div className="feature-relief-list">
+                    {featureReliefPoints.map((point) => (
+                      <article key={point.title} className="feature-relief-item">
+                        <div className="feature-relief-icon" aria-hidden="true">
+                          <X className="feature-relief-icon-glyph" />
+                        </div>
+                        <div>
+                          <h3 className="heading-3">{point.title}</h3>
+                          <p>{point.body}</p>
+                        </div>
+                      </article>
+                    ))}
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+        <SectionCta
+          label="See If I Can Build This For Your Business"
+          caption="I'll look at your niche, your offer, and whether this system can generate leads for you."
+        />
       </section>
 
       <section id="setup" className="setup-section content-section">
         <div className="shell setup-section-shell container-large section-shell">
           <div className="setup-section-intro section-intro container-medium">
-            <h2 className="section-label">The Setup</h2>
+            <h2 className="section-label">Setup</h2>
             <p className="section-intro-title">I set up the foundation that makes this work.</p>
             <p className="section-intro-body">
               This is not just comment posting. The source channel, the target-channel
@@ -342,141 +618,47 @@ export function HesperusLanding() {
           <div className="setup-section-grid">
             {setupPoints.map((point, index) => (
               <article key={point.title} className="setup-step-card">
-                <div className="setup-step-number">{index + 1}</div>
-                <h3>{point.title}</h3>
+                <div className="setup-step-header">
+                  <p className="setup-step-kicker">Step {index + 1}</p>
+                </div>
+                <h3 className="heading-3">{point.title}</h3>
                 <p>{point.body}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="features" className="features-section light-section">
-        <div className="shell features-section-shell container-large section-shell">
-          <div className="features-section-intro section-intro container-medium">
-            <h2 className="section-label">The Features</h2>
-            <p className="section-intro-title">
-              I handle the entire process. You focus on closing.
-            </p>
-            <p className="section-intro-body">
-              You are not buying software. You are hiring me to operate the full
-              engine: channel readiness, target selection, comment execution,
-              and the conversion path that turns that visibility into pipeline.
-            </p>
-          </div>
-
-          <div className="feature-grid">
-            <div className="feature-copy">
-            <div className="feature-list">
-              {benefits.map((item) => (
-                <article key={item.title} className="feature-item">
-                  <div className="feature-item-icon">
-                    <item.icon className="h-4 w-4" />
-                  </div>
-                  <div>
-                    <h3>{item.title}</h3>
-                    <p>{item.body}</p>
-                  </div>
-                </article>
-              ))}
-            </div>
-            </div>
-
-            <div className="opportunity-card">
-              <div className="opportunity-sidebar">
-                <div className="demo-brand dark">
-                  <Star className="h-3.5 w-3.5" />
-                  <span>Hesperus</span>
-                </div>
-                <div className="demo-nav-item active">Dashboard</div>
-                <div className="demo-nav-item">Opportunities</div>
-                <div className="demo-nav-item">Alerts</div>
-                <div className="demo-nav-item">History</div>
-                <div className="demo-nav-item">Settings</div>
-              </div>
-
-              <div className="opportunity-main">
-                <div className="demo-topbar light">
-                  <div>
-                    <p className="demo-heading dark">Active Opportunities</p>
-                    <p className="demo-subheading dark">This is the internal operating layer I use once the source channel, target channels, and conversion path are ready</p>
-                  </div>
-                  <div className="demo-filter light">This Week</div>
-                </div>
-
-                <div className="demo-table light">
-                  {dashboardRows.map((row) => (
-                    <div key={row.title} className="demo-row light">
-                      <div className="demo-row-icon light">
-                        <PlayCircle className="h-4 w-4" />
-                      </div>
-                      <div className="demo-row-copy">
-                        <p className="demo-row-title dark">{row.title}</p>
-                        <div className="demo-tags light">
-                          {row.tags.map((tag) => (
-                            <span key={tag}>{tag}</span>
-                          ))}
-                        </div>
-                      </div>
-                      <div className="demo-score light">
-                        <strong>{row.score}</strong>
-                        <span>/100</span>
-                      </div>
-                    </div>
+                <ul className="setup-step-list">
+                  {point.bullets.map((bullet) => (
+                    <li key={bullet}>{bullet}</li>
                   ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="channel-advantage-section content-section">
-        <div className="shell channel-advantage-shell container-large section-shell">
-          <div className="channel-advantage-intro section-intro container-medium">
-            <h2 className="section-label">Why This Channel Wins</h2>
-            <p className="section-intro-title">
-              YouTube has baked-in trust and alignment.
-            </p>
-            <p className="section-intro-body">
-              I am not buying cold attention and hoping it converts later. I am
-              placing your brand directly inside conversations that already have
-              relevance, audience trust, and clear buying context.
-            </p>
-          </div>
-
-          <div className="channel-advantage-grid">
-            {advantagePoints.map((point) => (
-              <article key={point.title} className="advantage-card">
-                <div className="advantage-card-icon">
-                  <point.icon className="h-4 w-4" />
-                </div>
-                <h3>{point.title}</h3>
-                <p>{point.body}</p>
+                </ul>
               </article>
             ))}
           </div>
         </div>
+        <SectionCta
+          label="Get A Setup Plan For Your Business"
+          caption="See what needs to be in place before this can work for you"
+        />
       </section>
 
       <section id="how-it-works" className="how-it-works-section content-section">
-        <div className="shell dual-card-grid container-large section-shell">
-          <article className="content-card">
-            <p className="section-label dark">How It Works</p>
-            <h2>I set up the whole chain so YouTube attention can turn into a measurable business result.</h2>
-            <ol className="execution-list">
-              {executionPoints.map((point, index) => (
-                <li key={point}>
-                  <span>{index + 1}</span>
-                  <p>{point}</p>
-                </li>
-              ))}
-            </ol>
-          </article>
+        <div className="shell how-it-works-shell container-large section-shell">
+          <div className="how-it-works-intro section-intro container-medium">
+            <h2 className="section-label">Quality</h2>
+          </div>
 
-          <article className="content-card accent">
-            <p className="section-label dark">Built For Quality, Not Spam</p>
-            <h2>This only works when the source channel, target channels, conversion path, and tracking all fit together.</h2>
+          <div className="dual-card-grid container-large">
+          <article className="content-card">
+            <h2>Built For Quality, Not Spam</h2>
+            <p>
+              This only works when it&apos;s done properly.
+            </p>
+            <p>
+              This is not bulk commenting or generic outreach.
+            </p>
+            <p>
+              It only works when the channel, targeting, messaging, and
+              conversion path are all aligned — and when every comment is
+              placed with intent.
+            </p>
+            <h3 className="heading-3">No Noise. No Shortcuts.</h3>
             <ul className="quality-list">
               {qualityPoints.map((point) => (
                 <li key={point}>
@@ -485,40 +667,176 @@ export function HesperusLanding() {
                 </li>
               ))}
             </ul>
+          </article>
+
+          <article className="content-card accent">
+            <h2>Every Placement Is Intentional</h2>
+            <p>Your brand shows up where it actually belongs.</p>
+            <p>I don&apos;t post everywhere.</p>
+            <p>
+              I place your brand in conversations where:
+            </p>
+            <ul className="quality-list">
+              <li>
+                <CheckCircle2 className="h-4 w-4" />
+                <span>your audience is already paying attention</span>
+              </li>
+              <li>
+                <CheckCircle2 className="h-4 w-4" />
+                <span>the topic matches your offer</span>
+              </li>
+              <li>
+                <CheckCircle2 className="h-4 w-4" />
+                <span>the context makes sense</span>
+              </li>
+            </ul>
             <div className="command-box" id="about">
               <div className="command-box-icon">
                 <Sparkles className="h-4 w-4" />
               </div>
               <div>
-                <h3>Telegram is my operating console.</h3>
+                <h3 className="heading-3">Built To Convert, Not Just Be Seen</h3>
                 <p>
-                  I use Telegram internally to keep execution fast, reviewable,
-                  and tightly controlled while your team stays focused on sales
-                  and delivery.
+                  Visibility means nothing if it doesn&apos;t turn into leads.
+                </p>
+                <p>
+                  Every step is aligned to one outcome: the right person sees
+                  your comment, clicks through, trusts what they find, and takes
+                  action.
                 </p>
               </div>
             </div>
           </article>
+          </div>
+        <SectionCta
+          label="See If This Will Work For Your Business"
+          caption="I&apos;ll look at your niche, your offer, and whether this approach can generate leads for you."
+        />
         </div>
       </section>
 
-      <section className="who-its-for-section content-section">
-        <div className="shell who-its-for-shell container-large section-shell">
-          <div className="who-its-for-intro section-intro container-medium">
-            <h2 className="section-label">Who&apos;s This For?</h2>
+      <section id="results" className="results-section content-section">
+        <div className="shell results-shell container-large section-shell">
+          <div className="results-intro section-intro container-medium">
+            <h2 className="section-label">Results</h2>
             <p className="section-intro-title">
-              Best for Nation-Wide Service-Based Businesses
+              What this looks like in practice
             </p>
             <p className="section-intro-body">
-              The channel, the offer, the landing path, and the follow-up all
-              matter here. When those pieces are in place, this can become a
-              durable lead-generation system instead of a one-off tactic.
+              Before offering this as a service, I used the same approach to
+              generate a client for my own business.
+            </p>
+          </div>
+
+          <div className="results-case-card container-large">
+            <div className="results-case-grid">
+              <div className="results-story">
+                <div className="results-story-label">Real Example</div>
+                <h3 className="heading-3 results-story-title">
+                  Bookkeeping Client Acquired From YouTube Comments
+                </h3>
+                <p className="results-story-micro-tag">
+                  1 client -&gt; 1 week -&gt; inbound call
+                </p>
+                <p className="results-story-outcome">
+                  Closed a new client within ~1 week from YouTube comment visibility.
+                </p>
+                <div className="results-cta results-cta-inline">
+                  <a className="primary-button large" href={mailtoHref}>
+                    See If This Will Work For Your Business{" "}
+                    <ArrowRight className="h-4 w-4" />
+                  </a>
+                  <p className="results-cta-caption">
+                    I&apos;ll look at your niche, your offer, and whether this
+                    approach can generate leads for you.
+                  </p>
+                </div>
+                <div className="results-story-copy">
+                  <p>
+                    I consistently showed up in the comments on a large
+                    bookkeeping YouTube channel — not with spam, but with
+                    relevant input where people were actively looking for help.
+                  </p>
+                  <p>
+                    A company in the marine space wanted to work with the
+                    channel creator — but he wasn&apos;t available.
+                  </p>
+                  <p>
+                    They had already seen my name repeatedly in the comments.
+                    When they needed an alternative, I was the obvious next
+                    option.
+                  </p>
+                </div>
+              </div>
+
+              <div className="results-metrics">
+                <p className="results-metrics-label">Outcome</p>
+                <div className="results-metrics-grid">
+                  {resultsMetricCards.map((card) => (
+                    <article key={card.label} className="results-metric-card">
+                      <div className="results-metric-icon">
+                        <card.icon className="h-5 w-5" />
+                      </div>
+                      <p className="results-metric-label">{card.label}</p>
+                      <p className="results-metric-value">{card.value}</p>
+                      {card.detail ? (
+                        <p className="results-metric-detail">{card.detail}</p>
+                      ) : null}
+                    </article>
+                  ))}
+                </div>
+
+                <blockquote className="results-quote">
+                  This isn&apos;t about volume. It&apos;s about showing up in
+                  the right conversations and being the obvious choice when
+                  someone is ready to hire.
+                </blockquote>
+              </div>
+
+              <div className="results-story-points">
+                {resultsStoryPoints.map((point) => (
+                  <div key={point.text} className="results-story-point">
+                    <div className="results-story-point-icon">
+                      <point.icon className="h-4 w-4" />
+                    </div>
+                    <p>{point.text}</p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="results-cta results-cta-bottom">
+                <a className="primary-button large" href={mailtoHref}>
+                  See If This Will Work For Your Business{" "}
+                  <ArrowRight className="h-4 w-4" />
+                </a>
+                <p className="results-cta-caption">
+                  I&apos;ll look at your niche, your offer, and whether this
+                  approach can generate leads for you.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="who-its-for" className="who-its-for-section content-section">
+        <div className="shell who-its-for-shell container-large section-shell">
+          <div className="who-its-for-intro section-intro container-medium">
+            <h2 className="section-label">The Fit</h2>
+            <p className="section-intro-title">
+              This works best for established businesses with real deal value.
+            </p>
+            <p className="section-intro-body">
+              This is not for early-stage companies still figuring out their
+              offer. It works best when you already have a proven business, a
+              clear service, and the ability to turn one inbound lead into
+              meaningful revenue.
             </p>
           </div>
 
           <div className="audience-fit-grid">
             <article className="content-card">
-              <h3>A Strong Fit</h3>
+                <h3 className="heading-3">A Strong Fit</h3>
               <ul className="fit-list dark-list">
                 {fitPoints.map((point) => (
                   <li key={point}>
@@ -530,7 +848,7 @@ export function HesperusLanding() {
             </article>
 
             <article className="content-card accent">
-              <h3>Not A Fit</h3>
+                <h3 className="heading-3">Not A Fit</h3>
               <ul className="fit-list dark-list">
                 {notFitPoints.map((point) => (
                   <li key={point}>
@@ -541,10 +859,15 @@ export function HesperusLanding() {
               </ul>
             </article>
           </div>
+          <p className="fit-section-note section-intro-body container-medium">
+            If one new client per month would make this a clear win, this is
+            worth exploring.
+          </p>
         </div>
+        <SectionCta />
       </section>
 
-      <section className="client-types-section content-section">
+      <section id="client-fit" className="client-types-section content-section">
         <div className="shell client-types-shell container-large section-shell">
           <div className="client-types-intro section-intro container-medium">
             <h2 className="section-label">Client Fit</h2>
@@ -560,7 +883,7 @@ export function HesperusLanding() {
 
           <div className="client-types-grid">
             <article className="content-card">
-              <h3>The Kinds Of Clients I Work With</h3>
+                <h3 className="heading-3">The Kinds Of Clients I Work With</h3>
               <ul className="fit-list dark-list">
                 {clientTypePoints.map((point) => (
                   <li key={point}>
@@ -572,7 +895,7 @@ export function HesperusLanding() {
             </article>
 
             <article className="content-card accent client-capacity-card">
-              <h3>Limited Availability</h3>
+                <h3 className="heading-3">Limited Availability</h3>
               <p className="client-capacity-copy">
                 I work with no more than <strong>10 clients at a time</strong>.
               </p>
@@ -586,42 +909,91 @@ export function HesperusLanding() {
             </article>
           </div>
         </div>
+        <SectionCta />
       </section>
 
-      <section id="pricing" className="pricing-section cta-section">
-        <div className="shell cta-banner container-large section-shell">
-          <div className="cta-banner-visual">
-            <div className="mini-creature">
-              <Image
-                    src="/hesperus-yuruchara.webp"
-                alt="Hesperus mascot"
-                width={640}
-                height={960}
-                className="mini-creature-image"
-              />
-            </div>
-          </div>
-
-          <div className="cta-banner-copy">
-            <h2>Show up in the right conversations. Collect the right leads.</h2>
-            <p>
-              This is a managed service for brands willing to build the full
-              system properly: source channel, content base, target-channel
-              selection, conversion path, and tracking.
+      <section id="pricing" className="pricing-section content-section">
+        <div className="shell pricing-shell container-large section-shell">
+          <div className="pricing-intro section-intro container-medium">
+            <h2 className="section-label">Pricing</h2>
+            <p className="section-intro-title">
+              A simple, done-for-you lead generation system
+            </p>
+            <p className="section-intro-body">
+              This is a managed service. I set up and run the full path from
+              YouTube attention -&gt; channel -&gt; website -&gt; inbound leads.
+            </p>
+            <p className="section-intro-body">
+              Most clients treat this as a 60-90 day test to validate lead
+              flow.
+            </p>
+            <p className="section-intro-body">
+              I handle strategy, execution, and optimization directly.
             </p>
           </div>
 
-          <div className="cta-banner-action">
-            <div className="pricing-chip">Managed engagements start at $3,000/month</div>
-            <a className="primary-button large" href={mailtoHref}>
-              Book a Fit Call <ArrowRight className="h-4 w-4" />
-            </a>
-            <p>
-              Includes source-channel readiness, target-channel selection,
-              comment execution, conversion-path support, analytics setup, and
-              ongoing refinement.
-            </p>
+          <div className="pricing-plan-grid">
+            {pricingPlans.map((plan) => (
+              <article
+                key={plan.name}
+                className={`pricing-plan-card${plan.featured ? " pricing-plan-card-featured" : " pricing-plan-card-soft"}`}
+              >
+                {plan.featured ? (
+                  <div className="pricing-plan-badge">Recommended</div>
+                ) : null}
+                <p className="pricing-plan-kicker">{plan.name}</p>
+                <h3 className="heading-3 pricing-plan-target">
+                  {plan.targetChannels}
+                </h3>
+                <p className="pricing-plan-subtitle">{plan.subtitle}</p>
+                <p className="pricing-plan-copy pricing-plan-description">
+                  {plan.description}
+                </p>
+                {plan.supportingLine ? (
+                  <p className="pricing-plan-supporting-line">
+                    {plan.supportingLine}
+                  </p>
+                ) : null}
+                <p className="pricing-plan-title">
+                  {plan.price} <span>{plan.cadence}</span>
+                </p>
+                <div className="pricing-plan-stack">
+                  <div className="pricing-plan-block">
+                    <p className="pricing-plan-list-label">{plan.includedLabel}</p>
+                    <ul className="fit-list dark-list pricing-plan-list">
+                      {plan.features.map((point) => (
+                        <li key={point}>
+                          <CheckCircle2 className="h-4 w-4" />
+                          <span>{point}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="pricing-plan-block">
+                    <p className="pricing-plan-list-label">Best for:</p>
+                    <p className="pricing-note">{plan.bestFor}</p>
+                  </div>
+                </div>
+                <a className="primary-button large pricing-plan-button" href={mailtoHref}>
+                  See If This Will Work For Your Business{" "}
+                  <ArrowRight className="h-4 w-4" />
+                </a>
+              </article>
+            ))}
           </div>
+          <p className="pricing-allocation-note section-intro-body container-medium">
+            Placements are allocated across target channels based on activity and opportunity.
+          </p>
+          <p className="pricing-allocation-note section-intro-body container-medium">
+            A lead = a real inbound inquiry (call, form, or booking) from your target market.
+          </p>
+          <p className="pricing-bottom-note section-intro-body container-medium">
+            If one new client per month covers this, it&apos;s worth testing. If it produces more, it becomes a core channel.
+          </p>
+          <p className="pricing-allocation-note section-intro-body container-medium">
+            Limited client capacity - I stay directly involved in each account.
+          </p>
         </div>
       </section>
 
@@ -632,9 +1004,20 @@ export function HesperusLanding() {
           </span>
           <span className="brand-wordmark">Hesperus</span>
         </div>
+        <nav className="footer-nav">
+          <a href="#funnel">The Funnel</a>
+          <a href="#setup">Setup</a>
+          <a href="#features">Features</a>
+          <a href="#channel-wins">Why YouTube?</a>
+          <a href="#who-its-for">The Fit</a>
+          <a href="#client-fit">Client Fit</a>
+          <a href="#pricing">Pricing</a>
+        </nav>
         <p>Offered through Southwest Digital Marketing.</p>
         <a href="mailto:hello@gethesperus.com">hello@gethesperus.com</a>
       </footer>
     </main>
   );
 }
+
+

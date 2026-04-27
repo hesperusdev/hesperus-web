@@ -27,6 +27,7 @@ const smallContainerLabel = `${designSystem.containerSmallRem}rem / ${designSyst
 const sectionPaddingLabel = `${designSystem.sectionPaddingRem}rem / ${designSystem.sectionPaddingRem * 16}px`;
 const sectionStackGapLabel = `${designSystem.sectionStackGapRem}rem / ${designSystem.sectionStackGapRem * 16}px`;
 const containerGapLabel = `${designSystem.containerGapRem}rem / ${designSystem.containerGapRem * 16}px`;
+const heading3Label = `${designSystem.heading3FontRem}rem / ${designSystem.heading3LineHeight} / ${designSystem.heading3LetterSpacingEm}em`;
 const graphicsRules = [
   "Dark cinematic top sections, warm editorial lower sections",
   "Premium SaaS meets operator dashboard, not generic startup gradients",
@@ -92,13 +93,13 @@ export function HesperusStyleGuide() {
               <p className="style-guide-section-title">Core tokens currently driving the site.</p>
             </div>
             <div className="token-grid">
-              {colorTokens.map((token) => (
-                <article key={token.label} className="token-card">
-                  <div className={`token-swatch ${token.className}`} />
-                  <h3>{token.label}</h3>
-                  <div className="token-meta">
-                    <p>{`rgb(${token.rgb})`}</p>
-                    <p>{token.hex}</p>
+                {colorTokens.map((token) => (
+                  <article key={token.label} className="token-card">
+                    <div className={`token-swatch ${token.className}`} />
+                    <p className="style-guide-mini-heading">{token.label}</p>
+                    <div className="token-meta">
+                      <p>{`rgb(${token.rgb})`}</p>
+                      <p>{token.hex}</p>
                   </div>
                 </article>
               ))}
@@ -146,9 +147,9 @@ export function HesperusStyleGuide() {
               <h2 className="section-label">Typography</h2>
               <p className="style-guide-section-title">Headline, section, body, and small label treatments.</p>
             </div>
-            <div className="dual-card-grid">
-              <article className="content-card">
-                <p className="section-label dark">Hero Title</p>
+              <div className="dual-card-grid">
+                <article className="content-card">
+                  <p className="section-label dark">Hero Title</p>
                 <div className="style-type-sample">
                   <p className="style-guide-type-main">
                     I Turn Other People&apos;s YouTube Audiences Into Your Leads.
@@ -157,15 +158,21 @@ export function HesperusStyleGuide() {
                 </div>
               </article>
 
-              <article className="content-card accent">
-                <p className="section-label dark">Section Type</p>
-                <h2>Designed for relevance, timing, and quality control.</h2>
-                <p className="style-guide-copy">
-                  Plus Jakarta Sans is used site-wide for both the marketing copy and the tighter UI
-                  labels.
-                </p>
-              </article>
-            </div>
+                <article className="content-card accent">
+                  <p className="section-label dark">Section Type</p>
+                  <h2>Designed for relevance, timing, and quality control.</h2>
+                  <p className="style-guide-copy">
+                    Plus Jakarta Sans is used site-wide for both the marketing copy and the tighter UI
+                    labels.
+                  </p>
+                </article>
+
+                <article className="content-card">
+                  <p className="section-label dark">Heading 3</p>
+                  <h3 className="heading-3">Shared H3 Class Example</h3>
+                  <p className="style-guide-copy">{`heading-3: ${heading3Label}`}</p>
+                </article>
+              </div>
           </section>
 
           <section className="style-guide-section">
@@ -193,11 +200,11 @@ export function HesperusStyleGuide() {
               <p className="style-guide-section-title">Simple spacing rules for sections and stacked containers.</p>
             </div>
             <div className="spacing-guide">
-              <article className="spacing-card">
-                <div className="spacing-card-header">
-                  <h3>Special Section Inset</h3>
-                  <p>{sectionPaddingLabel}</p>
-                </div>
+                <article className="spacing-card">
+                  <div className="spacing-card-header">
+                    <p className="style-guide-mini-heading">Special Section Inset</p>
+                    <p>{sectionPaddingLabel}</p>
+                  </div>
                 <div className="spacing-demo spacing-demo-section">
                   <div className="spacing-demo-band spacing-demo-band-dark">Section Start</div>
                   <div className="spacing-demo-measure spacing-demo-measure-section" />
@@ -205,11 +212,11 @@ export function HesperusStyleGuide() {
                 </div>
               </article>
 
-              <article className="spacing-card">
-                <div className="spacing-card-header">
-                  <h3>Section Spacer</h3>
-                  <p>{sectionStackGapLabel}</p>
-                </div>
+                <article className="spacing-card">
+                  <div className="spacing-card-header">
+                    <p className="style-guide-mini-heading">Section Spacer</p>
+                    <p>{sectionStackGapLabel}</p>
+                  </div>
                 <div className="spacing-demo spacing-demo-stack">
                   <div className="spacing-demo-band spacing-demo-band-dark">Section A</div>
                   <div className="spacing-demo-measure spacing-demo-measure-stack" />
@@ -217,11 +224,11 @@ export function HesperusStyleGuide() {
                 </div>
               </article>
 
-              <article className="spacing-card">
-                <div className="spacing-card-header">
-                  <h3>Container Gap</h3>
-                  <p>{containerGapLabel}</p>
-                </div>
+                <article className="spacing-card">
+                  <div className="spacing-card-header">
+                    <p className="style-guide-mini-heading">Container Gap</p>
+                    <p>{containerGapLabel}</p>
+                  </div>
                 <div className="spacing-demo spacing-demo-containers">
                   <div className="spacing-demo-band spacing-demo-band-accent">Container One</div>
                   <div className="spacing-demo-measure spacing-demo-measure-container" />

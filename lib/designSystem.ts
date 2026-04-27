@@ -9,8 +9,11 @@ export const designSystem = {
   containerSmallRem: 38,
   largeMediaRem: 72,
   sectionPaddingRem: 4.5,
-  sectionStackGapRem: 6,
+  sectionStackGapRem: 9,
   containerGapRem: 1.6,
+  heading3FontRem: 1.35,
+  heading3LineHeight: 1.15,
+  heading3LetterSpacingEm: 0,
 } as const;
 
 export const designSystemCssVars = {
@@ -24,4 +27,7 @@ export const designSystemCssVars = {
   "--space-section": `${designSystem.sectionPaddingRem}rem`,
   "--space-section-stack": `${designSystem.sectionStackGapRem}rem`,
   "--space-container-gap": `${designSystem.containerGapRem}rem`,
+  "--heading-3-size": `${designSystem.heading3FontRem}rem`,
+  "--heading-3-line-height": `${designSystem.heading3LineHeight}`,
+  "--heading-3-letter-spacing": `${designSystem.heading3LetterSpacingEm}em`,
 } as CSSProperties;

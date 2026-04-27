@@ -169,6 +169,42 @@ const qualityPoints = [
   "No pretending this works without the right source channel, conversion path, and analytics",
 ];
 
+const advantagePoints = [
+  {
+    icon: Eye,
+    title: "You Borrow Existing Attention",
+    body: "Instead of paying to interrupt people cold, I place your brand where your buyers are already watching, researching, and paying attention.",
+  },
+  {
+    icon: Radar,
+    title: "You Enter High-Intent Moments",
+    body: "A new video on the right channel creates a fresh window where curiosity and buying intent are already active in the comments.",
+  },
+  {
+    icon: Telescope,
+    title: "You Gain Trust By Proximity",
+    body: "Your brand shows up next to creators your market already trusts, which makes the click to your channel far more qualified than generic traffic.",
+  },
+  {
+    icon: Send,
+    title: "You Can Track It End To End",
+    body: "The path from comment to channel to site to booked call can be measured, improved, and tied back to qualified leads instead of vanity metrics.",
+  },
+];
+
+const notFitPoints = [
+  "Businesses looking for instant scale without building the channel and conversion path first",
+  "Teams that want bulk AI comments or hands-off spam tactics",
+  "Offers that do not benefit from trust, authority, or thoughtful public positioning",
+  "Clients unwilling to support tracking, landing pages, or a credible sales follow-up process",
+];
+
+const clientTypePoints = [
+  "I work best with service businesses, experts, educators, and founder-led brands that can benefit from trust-based lead flow.",
+  "I take on a limited number of clients at a time so I can stay directly involved in strategy, execution, and optimization.",
+  "I do not want a bloated roster. I want a small book of businesses where I can actually move the needle.",
+];
+
 const mailtoHref =
   "mailto:hello@gethesperus.com?subject=Hesperus%20Fit%20Call&body=I%20want%20to%20talk%20about%20using%20Hesperus%20as%20a%20managed%20lead-generation%20service%20for%20my%20business.";
 
@@ -395,6 +431,34 @@ export function HesperusLanding() {
         </div>
       </section>
 
+      <section className="channel-advantage-section content-section">
+        <div className="shell channel-advantage-shell container-large section-shell">
+          <div className="channel-advantage-intro section-intro container-medium">
+            <h2 className="section-label">Why This Channel Wins</h2>
+            <p className="section-intro-title">
+              YouTube has baked-in trust and alignment.
+            </p>
+            <p className="section-intro-body">
+              I am not buying cold attention and hoping it converts later. I am
+              placing your brand directly inside conversations that already have
+              relevance, audience trust, and clear buying context.
+            </p>
+          </div>
+
+          <div className="channel-advantage-grid">
+            {advantagePoints.map((point) => (
+              <article key={point.title} className="advantage-card">
+                <div className="advantage-card-icon">
+                  <point.icon className="h-4 w-4" />
+                </div>
+                <h3>{point.title}</h3>
+                <p>{point.body}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section id="how-it-works" className="how-it-works-section content-section">
         <div className="shell dual-card-grid container-large section-shell">
           <article className="content-card">
@@ -438,6 +502,92 @@ export function HesperusLanding() {
         </div>
       </section>
 
+      <section className="who-its-for-section content-section">
+        <div className="shell who-its-for-shell container-large section-shell">
+          <div className="who-its-for-intro section-intro container-medium">
+            <h2 className="section-label">Who&apos;s This For?</h2>
+            <p className="section-intro-title">
+              Best for Nation-Wide Service-Based Businesses
+            </p>
+            <p className="section-intro-body">
+              The channel, the offer, the landing path, and the follow-up all
+              matter here. When those pieces are in place, this can become a
+              durable lead-generation system instead of a one-off tactic.
+            </p>
+          </div>
+
+          <div className="audience-fit-grid">
+            <article className="content-card">
+              <h3>A Strong Fit</h3>
+              <ul className="fit-list dark-list">
+                {fitPoints.map((point) => (
+                  <li key={point}>
+                    <CheckCircle2 className="h-4 w-4" />
+                    <span>{point}</span>
+                  </li>
+                ))}
+              </ul>
+            </article>
+
+            <article className="content-card accent">
+              <h3>Not A Fit</h3>
+              <ul className="fit-list dark-list">
+                {notFitPoints.map((point) => (
+                  <li key={point}>
+                    <ShieldCheck className="h-4 w-4" />
+                    <span>{point}</span>
+                  </li>
+                ))}
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section className="client-types-section content-section">
+        <div className="shell client-types-shell container-large section-shell">
+          <div className="client-types-intro section-intro container-medium">
+            <h2 className="section-label">Client Fit</h2>
+            <p className="section-intro-title">
+              I Work With 10 Clients Max - Slots Currently Open
+            </p>
+            <p className="section-intro-body">
+              This is not a scaled agency model with a huge client roster. I keep
+              the client list tight so I can stay directly responsible for setup,
+              execution, and results.
+            </p>
+          </div>
+
+          <div className="client-types-grid">
+            <article className="content-card">
+              <h3>The Kinds Of Clients I Work With</h3>
+              <ul className="fit-list dark-list">
+                {clientTypePoints.map((point) => (
+                  <li key={point}>
+                    <CheckCircle2 className="h-4 w-4" />
+                    <span>{point}</span>
+                  </li>
+                ))}
+              </ul>
+            </article>
+
+            <article className="content-card accent client-capacity-card">
+              <h3>Limited Availability</h3>
+              <p className="client-capacity-copy">
+                I work with no more than <strong>10 clients at a time</strong>.
+              </p>
+              <p className="client-capacity-copy">
+                I am currently <strong>accepting clients</strong>, but I keep the
+                number limited on purpose.
+              </p>
+              <a className="primary-button" href={mailtoHref}>
+                Book a Fit Call <ArrowRight className="h-4 w-4" />
+              </a>
+            </article>
+          </div>
+        </div>
+      </section>
+
       <section id="pricing" className="pricing-section cta-section">
         <div className="shell cta-banner container-large section-shell">
           <div className="cta-banner-visual">
@@ -459,14 +609,6 @@ export function HesperusLanding() {
               system properly: source channel, content base, target-channel
               selection, conversion path, and tracking.
             </p>
-            <ul className="fit-list">
-              {fitPoints.map((point) => (
-                <li key={point}>
-                  <CheckCircle2 className="h-4 w-4" />
-                  <span>{point}</span>
-                </li>
-              ))}
-            </ul>
           </div>
 
           <div className="cta-banner-action">

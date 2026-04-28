@@ -1,3 +1,5 @@
+import { existsSync } from "node:fs";
+
 type CloudflareVideoPlayerProps = {
   className?: string;
   iframeClassName?: string;
@@ -5,7 +7,15 @@ type CloudflareVideoPlayerProps = {
 };
 
 const streamVideoId = "7c995841570200d3f0dfb7dd5410113f";
-const posterPath = "/hesperus-promo-video-thumbnail-1.png";
+const posterPath = (() => {
+  const webpPosterPath = "/hesperus-promo-video-thumbnail-1.webp";
+  const pngPosterPath = "/hesperus-promo-video-thumbnail-1.png";
+  const webpPosterFile = `${process.cwd()}/public/hesperus-promo-video-thumbnail-1.webp`;
+
+  return existsSync(webpPosterFile)
+    ? webpPosterPath
+    : pngPosterPath;
+})();
 const siteOrigin = process.env.NEXT_PUBLIC_SITE_URL ?? "https://gethesperus.com";
 const posterUrl = new URL(posterPath, siteOrigin).toString();
 

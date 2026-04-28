@@ -393,16 +393,6 @@ export function HesperusLanding() {
             </h1>
           </div>
 
-          <div className="hero-cta-row container-small">
-            <a className="primary-button large" href={mailtoHref}>
-              Book a Fit Call <ArrowRight className="h-4 w-4" />
-            </a>
-            <a className="ghost-link" href="#funnel">
-              <PlayCircle className="h-5 w-5" />
-              <span>See How It Works</span>
-            </a>
-          </div>
-
           <div className="hero-media container-medium">
             <CloudflareVideoPlayer
               className="cloudflare-player-shell hero-player-shell"
@@ -432,6 +422,16 @@ export function HesperusLanding() {
                 </div>
               </div>
             </aside>
+          </div>
+
+          <div className="hero-cta-row container-small">
+            <a className="primary-button large" href={mailtoHref}>
+              Book a Fit Call <ArrowRight className="h-4 w-4" />
+            </a>
+            <a className="ghost-link" href="#funnel">
+              <PlayCircle className="h-5 w-5" />
+              <span>See How It Works</span>
+            </a>
           </div>
 
         </div>

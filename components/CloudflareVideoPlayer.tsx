@@ -4,6 +4,11 @@ type CloudflareVideoPlayerProps = {
   title?: string;
 };
 
+const streamVideoId = "7c995841570200d3f0dfb7dd5410113f";
+const posterPath = "/hesperus-promo-video-thumbnail-1.png";
+const siteOrigin = process.env.NEXT_PUBLIC_SITE_URL ?? "https://gethesperus.com";
+const posterUrl = new URL(posterPath, siteOrigin).toString();
+
 export function CloudflareVideoPlayer({
   className,
   iframeClassName,
@@ -13,7 +18,7 @@ export function CloudflareVideoPlayer({
     <div className={className ?? "cloudflare-player-shell"}>
       <iframe
         className={iframeClassName ?? "cloudflare-player-iframe"}
-        src="https://customer-8urn5752m36lkzxs.cloudflarestream.com/7c995841570200d3f0dfb7dd5410113f/iframe?controls=true&preload=auto"
+        src={`https://customer-8urn5752m36lkzxs.cloudflarestream.com/${streamVideoId}/iframe?controls=true&preload=auto&poster=${encodeURIComponent(posterUrl)}`}
         title={title}
         allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture"
         allowFullScreen

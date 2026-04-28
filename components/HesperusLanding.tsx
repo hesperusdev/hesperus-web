@@ -407,6 +407,7 @@ export function HesperusLanding() {
             <CloudflareVideoPlayer
               className="cloudflare-player-shell hero-player-shell"
               iframeClassName="cloudflare-player-iframe hero-player-iframe"
+              title="Hesperus marketing video"
             />
             <aside className="hero-callout-card">
               <blockquote className="hero-callout-quote">

@@ -263,6 +263,7 @@ export function HesperusStyleGuide() {
               <CloudflareVideoPlayer
                 className="cloudflare-player-shell style-guide-video-shell container-medium"
                 iframeClassName="cloudflare-player-iframe style-guide-video-iframe"
+                title="Hesperus marketing video"
               />
             </div>
             <p className="style-guide-footnote">{`Landing-page video width: medium container (${mediumContainerLabel})`}</p>
